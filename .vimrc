@@ -15,6 +15,7 @@ Plugin 'geoffharcourt/one-dark.vim'
 Plugin 'blueshirts/darcula'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tell-k/vim-autopep8'
 " All of your Plugins must be added before the following line
@@ -77,8 +78,9 @@ nmap <leader>j :%!python -m json.tool<CR>
 map <leader>] :NERDTreeToggle<CR>
 map <leader>s :Gstatus<CR>
 map <leader>p oimport pdb;pdb.set_trace() <esc>
-set wildignore+=*/tmp/*,*.pyc,*/htmlcov/*,*.swp,*.zip,*/build/*,*/cover/*,_env,ENV
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
 
 "Syntastic
 "set statusline+=%#warningmsg#
