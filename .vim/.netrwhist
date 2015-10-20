@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/sandbox/bizengine'
-let g:netrw_dirhist_2='/sandbox/digitalpulse'
-let g:netrw_dirhist_3='/sandbox/bizengine'
-let g:netrw_dirhist_4='/sandbox'
-let g:netrw_dirhist_5='/sandbox/bizengine'
