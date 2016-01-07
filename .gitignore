@@ -1,1 +1,9 @@
 .vim/bundle
+.autojump
+.bash_history
+.bash_logout
+.cache
+.ipython
+.ssh
+QA.pem
+.vim/.netrwhist

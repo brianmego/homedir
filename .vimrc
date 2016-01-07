@@ -18,6 +18,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'henrik/vim-indexed-search'
+Bundle 'klen/python-mode'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'easymotion/vim-easymotion'
+Bundle 'christoomey/vim-tmux-navigator'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,6 +72,7 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 set nowrap
 let g:netrw_liststyle=3
+let g:netrw_list_hide= '.*\.pyc$'
 nnoremap j gj
 nnoremap k gk
 nnoremap H ^
@@ -76,12 +84,30 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nmap <leader>j :%!python -m json.tool<CR>
-map <leader>] :NERDTreeToggle<CR>
 map <leader>s :Gstatus<CR>
-map <leader>p oimport pdb;pdb.set_trace() <esc>
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV
+map <leader>w :w<CR>
+map <leader>p oimport pdb;pdb.set_trace()<esc>
+map <leader>e :Vexplore<CR>
+"set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,submakes,build,src
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,build,src
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:pymode_rope = 0
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_write = 1
+let g:pymode_virtualenv = 0
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_lint_options_pep8 = {'max_line_length': 150}
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
