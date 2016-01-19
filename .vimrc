@@ -16,14 +16,17 @@ Plugin 'blueshirts/darcula'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'henrik/vim-indexed-search'
-Bundle 'klen/python-mode'
+Plugin 'klen/python-mode'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'easymotion/vim-easymotion'
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -86,8 +89,9 @@ nnoremap <C-H> <C-W><C-H>
 nmap <leader>j :%!python -m json.tool<CR>
 map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
-map <leader>p oimport pdb;pdb.set_trace()<esc>
+map <leader>p oimport pdb<CR>pdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
+map <leader>h :Hexplore<CR>
 "set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,submakes,build,src
 set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,build,src
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
