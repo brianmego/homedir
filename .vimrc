@@ -19,13 +19,9 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'tell-k/vim-autopep8'
+Plugin 'tpope/vim-vinegar'
 Plugin 'henrik/vim-indexed-search'
 Plugin 'klen/python-mode'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'easymotion/vim-easymotion'
 Plugin 'christoomey/vim-tmux-navigator'
 
 " All of your Plugins must be added before the following line
@@ -80,7 +76,6 @@ nnoremap j gj
 nnoremap k gk
 nnoremap H ^
 nnoremap L $
-nnoremap M :noh<CR>
 inoremap jk <esc>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -92,8 +87,10 @@ map <leader>w :w<CR>
 map <leader>p oimport pdb<CR>pdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>h :Hexplore<CR>
-"set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,submakes,build,src
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logratate.d,build,src
+map <leader>l :PymodeLint<CR>
+map <leader>, f,a<CR><esc>
+map <leader>. t.a<CR><esc>l
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logrotate.d,build,src
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 

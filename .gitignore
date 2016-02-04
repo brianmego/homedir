@@ -7,3 +7,5 @@
 .ssh
 QA.pem
 .vim/.netrwhist
+.*
+sandbox
