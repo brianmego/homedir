@@ -41,7 +41,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 syntax enable           " enable syntax processing
-execute pathogen#infect()
 colorscheme onedark
 "set hidden
 set colorcolumn=80
