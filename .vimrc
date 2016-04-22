@@ -1,3 +1,4 @@
+let g:python_host_prog= '/usr/local/bin/python'
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -62,7 +63,7 @@ filetype plugin on
 set autoindent
 set number              " show line numbers
 set showcmd             " show command in bottom bar
-set nocursorline          " highlight current line
+set cursorline          " highlight current line
 set wildmenu
 set showmatch           " higlight matching parenthesis
 set ignorecase          " ignore case when searching
@@ -80,23 +81,21 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+let mapleader = " "
 nmap <leader>j :%!python -m json.tool<CR>
 map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
+map <leader>q :q<CR>
 map <leader>p oimport pdb<CR>pdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>h :Hexplore<CR>
 map <leader>l :PymodeLint<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logrotate.d,build,src
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logrotate.d
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:pymode_rope = 0
 let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pymode_lint = 1

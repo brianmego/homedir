@@ -18,3 +18,5 @@
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 [push]
 	default = simple
+[core]
+    editor = /usr/bin/vim
