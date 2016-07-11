@@ -62,6 +62,7 @@ filetype indent on
 filetype plugin on
 set autoindent
 set number              " show line numbers
+set mouse=a             " Enable mouse scrolling
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
 set wildmenu
@@ -87,12 +88,15 @@ map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>p oimport pdb<CR>pdb.set_trace()<esc>
+map <leader>i oimport ipdb<CR>ipdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>h :Hexplore<CR>
 map <leader>l :PymodeLint<CR>
+map <leader>a :PymodeLintAuto<CR>
+map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,_env,ENV,*_server,dists,logrotate.d
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,*_server,dists,logrotate.d,env
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 

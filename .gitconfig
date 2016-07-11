@@ -2,7 +2,7 @@
 	ui = true
 [user]
 	name = Brian Mego
-	email = bmego@predictivescience.com
+	email = brian.mego@q2ebanking.com
 [alias]
     co = checkout
     ec = config --global -e
@@ -20,3 +20,4 @@
 	default = simple
 [core]
     editor = /usr/bin/vim
+	autocrlf = input
