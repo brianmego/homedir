@@ -83,7 +83,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 let mapleader = " "
-nmap <leader>j :%!python -m json.tool<CR>
+map <leader>j :%!pypprint<CR>
 map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
