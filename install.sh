@@ -1,9 +1,11 @@
 #!/bin/bash
 
-ln -sf $PWD/.vimrc ~/.vimrc
-ln -sf $PWD/.zshrc ~/
-ln -sf $PWD/.zsh ~/
-ln -sf $PWD/.tmux.conf ~/
-ln -sf $PWD/.bashrc ~/
-ln -sf $PWD/.vim ~/
-ln -sf $PWD/.gitconfig ~/
+ln -svf $PWD/.vimrc ~/.vimrc
+ln -svf $PWD/.zshrc ~/
+ln -svf $PWD/.zsh ~/
+ln -svf $PWD/.tmux.conf ~/
+ln -svf $PWD/.bashrc ~/
+ln -svf $PWD/.vim ~/
+ln -svf $PWD/.gitconfig ~/
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall

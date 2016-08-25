@@ -1,5 +1,11 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
+# if [ -e /lib/terminfo/x/xterm-256color ]; then
+#     export TERM='xterm-256color'
+# else
+#     export TERM='xterm-color'
+# fi
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +64,11 @@ export PATH=$HOME/Code/arcanist/bin:$HOME/bin:/usr/local/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 # . /usr/share/autojump/autojump.sh
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+if [ "$(uname)" '==' "Darwin" ]; then
+    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+elif [ "$(uname)" '==' "Linux" ]; then
+    . /usr/share/autojump/autojump.sh
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
