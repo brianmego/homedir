@@ -92,8 +92,8 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 source $ZSH_CUSTOM/aliases
 #
-export PS1="%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
-%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} "
+export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
+%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
