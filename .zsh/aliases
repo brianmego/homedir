@@ -5,3 +5,9 @@ alias gl='git log'
 alias gd='git diff'
 alias c='clear'
 alias logview='pbpaste > /tmp/extension.log && lnav /tmp/extension.log'
+alias jumpbox='ssh -t jb zsh'
+alias dev_eastwood='ssh dev_eastwood -t zsh'
+alias prod_eastwood='ssh prod_eastwood -t zsh'
+alias kevin="git log --oneline --all --decorate --graph"
+alias weather="curl wttr.in"
+alias freshbash="exec env -i HOME=$HOME TERM=$TERM /bin/bash --norc --noprofile"

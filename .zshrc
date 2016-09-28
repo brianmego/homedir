@@ -11,7 +11,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -92,6 +92,9 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 source $ZSH_CUSTOM/aliases
 #
+export PS1="%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
+%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} "
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
