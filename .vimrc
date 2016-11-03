@@ -35,7 +35,7 @@ filetype plugin indent on    " required
 
 syntax enable           " enable syntax processing
 colorscheme onedark
-"set hidden
+set hidden
 set colorcolumn=80
 set ttyfast                     " faster redraw
 set backspace=indent,eol,start

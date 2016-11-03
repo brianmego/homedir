@@ -59,7 +59,7 @@ ZSH_CUSTOM=$HOME/.zsh/
 
 # User configuration
 
-export PATH=$HOME/Code/arcanist/bin:$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Code/arcanist/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -94,7 +94,7 @@ source $ZSH_CUSTOM/aliases
 #
 export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
-
+export JUMPBOX_IP=10.116.1.134
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
