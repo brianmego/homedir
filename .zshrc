@@ -6,7 +6,6 @@ export ZSH=$HOME/.oh-my-zsh
 #     export TERM='xterm-color'
 # fi
 
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -95,6 +94,11 @@ source $ZSH_CUSTOM/aliases
 export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 export JUMPBOX_IP=10.116.1.134
+export HOSTNAME='bmego-mbp'
+export GOPATH=$HOME/gocode
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
