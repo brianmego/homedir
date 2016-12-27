@@ -11,7 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'geoffharcourt/one-dark.vim'
+Plugin 'rakr/vim-one'
 Plugin 'bling/vim-airline'
 Plugin 'blueshirts/darcula'
 Plugin 'kien/ctrlp.vim'
@@ -33,7 +33,17 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax enable           " enable syntax processing
-colorscheme onedark
+
+if (has("termguicolors"))
+    set termguicolors
+endif
+
+set t_8b=[48;2;%lu;%lu;%lum
+set t_8f=[38;2;%lu;%lu;%lum
+
+set background=dark
+" let g:one_allow_italics = 1
+colorscheme one
 set hidden
 set colorcolumn=80
 set ttyfast                     " faster redraw
