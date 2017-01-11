@@ -4,11 +4,6 @@ alias gs='git status'
 alias gl='git log'
 alias gd='git diff'
 alias c='clear'
-alias logview='pbpaste > /tmp/extension.log && lnav /tmp/extension.log'
-alias jb='ssh -t jb zsh'
-alias dev_eastwood='ssh dev_eastwood -t zsh'
-alias prod_eastwood='ssh prod_eastwood -t zsh'
 alias kevin='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
 alias weather="curl wttr.in"
 alias activate='source `find . -name activate`'
-alias stocks="go run ~/gocode/src/github.com/mop-tracker/mop/cmd/mop/main.go"

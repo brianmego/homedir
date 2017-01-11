@@ -27,6 +27,7 @@ Plugin 'henrik/vim-indexed-search'
 Plugin 'klen/python-mode'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'SirVer/ultisnips'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -112,6 +113,7 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8']
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_lint_options_pep8 = {'max_line_length': 150}
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 autocmd FileType python set omnifunc=python3complete#Complete
 
 " Search for selected text, forwards or backwards.
