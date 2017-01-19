@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ln -svf $PWD/.vimrc ~/.vimrc
 ln -svf $PWD/.zshrc ~/
 ln -svf $PWD/.zsh ~/

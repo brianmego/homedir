@@ -61,11 +61,10 @@ ZSH_CUSTOM=$HOME/.zsh/
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-# . /usr/share/autojump/autojump.sh
 if [ "$(uname)" '==' "Darwin" ]; then
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 elif [ "$(uname)" '==' "Linux" ]; then
-    . /usr/share/autojump/autojump.sh
+    . /usr/share/autojump/autojump.zsh
 fi
 
 # You may need to manually set your language environment
