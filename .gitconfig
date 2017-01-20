@@ -1,8 +1,8 @@
 [color]
-	ui = true
+    ui = true
 [user]
-	name = Brian Mego
-	email = brian.mego@q2ebanking.com
+    name = Brian Mego
+    email = brian.mego@q2ebanking.com
 [alias]
     co = checkout
     ec = config --global -e
@@ -17,7 +17,8 @@
     bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
     bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 [push]
-	default = simple
+    default = simple
 [core]
     editor = /usr/bin/vim
-	autocrlf = input
+    autocrlf = input
+    pager = less -F -X
