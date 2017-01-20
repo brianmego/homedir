@@ -14,6 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'rakr/vim-one'
 Plugin 'bling/vim-airline'
 Plugin 'blueshirts/darcula'
+Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-eunuch'
@@ -43,8 +44,9 @@ set t_8b=[48;2;%lu;%lu;%lum
 set t_8f=[38;2;%lu;%lu;%lum
 
 set background=dark
-" let g:one_allow_italics = 1
-colorscheme one
+let g:airline_theme='quantum'
+let g:quantum_black = 1
+colorscheme quantum
 set hidden
 set colorcolumn=80
 set ttyfast                     " faster redraw

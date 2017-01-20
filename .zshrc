@@ -60,6 +60,7 @@ ZSH_CUSTOM=$HOME/.zsh/
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+export PATH=/usr/local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 # . /usr/share/autojump/autojump.sh
 if [ "$(uname)" '==' "Darwin" ]; then
