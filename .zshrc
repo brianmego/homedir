@@ -84,8 +84,6 @@ export EDITOR='vim'
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-autoload bashcompinit && bashcompinit
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -98,5 +96,10 @@ export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Apparently I develop node stuff now, too
+export NPM_CONFIG_PREFIX=~/.npm-global
+export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+
 fpath=(~/.zsh/completion $fpath)
+fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i

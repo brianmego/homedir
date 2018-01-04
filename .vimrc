@@ -40,6 +40,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-hclfmt'
+Plug 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -114,12 +115,10 @@ map <leader>p :pta<CR>
 map <leader>i oimport ipdb<CR>ipdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>h :Hexplore<CR>
-" map <leader>l :PymodeLint<CR>
-" map <leader>a :PymodeLintAuto<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,*_server,dists,logrotate.d,__pycache__/,.idea/,.git/,.*
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,*_server,dists,dist,node_modules,bower_components,tmp,logrotate.d,__pycache__/,.idea/,.git/,.*
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
