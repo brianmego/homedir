@@ -22,3 +22,5 @@
     editor = /usr/bin/vim
     autocrlf = input
     pager = less -F -X
+[advice]
+	detachedHead = false
