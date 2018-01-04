@@ -39,6 +39,7 @@ Plug 'zchee/deoplete-jedi'
 Plug 'Yggdroot/indentLine'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
+Plug 'fatih/vim-hclfmt'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -96,8 +97,6 @@ set nowrap
 
 let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.pyc$'
-nnoremap j gj
-nnoremap k gk
 nnoremap H ^
 nnoremap L $
 inoremap jk <esc>
@@ -134,6 +133,9 @@ map <leader>> :IndentLinesToggle<CR>
 
 " Set Vim.ack to use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
+
+" Set Autocompletion to show docstrings in a preview window
+let g:deoplete#sources#jedi#show_docstring = 1
 
 " Neomake Settings
 autocmd! BufWritePost *.py Neomake
@@ -254,6 +256,6 @@ function! WatchForChanges(bufname, ...)
   let @"=reg_saved
 endfunction
 
-let autoreadargs={'autoread':1} 
-execute WatchForChanges("*",autoreadargs) 
+let autoreadargs={'autoread':1}
+execute WatchForChanges("*",autoreadargs)
 
