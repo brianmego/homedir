@@ -2,7 +2,7 @@
     ui = true
 [user]
     name = Brian Mego
-    email = brian.mego@q2ebanking.com
+    email = brianmego@gmail.com
 [alias]
     co = checkout
     ec = config --global -e
