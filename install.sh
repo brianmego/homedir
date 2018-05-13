@@ -9,4 +9,5 @@ ln -svf $PWD/.bashrc ~/
 ln -svf $PWD/.vim ~/
 ln -svf $PWD/.gitconfig ~/
 ln -svf $PWD/.pylintrc ~/
+ln -svf $PWD/.xmonad ~/
 touch $PWD/.zsh/localrc

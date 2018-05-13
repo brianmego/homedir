@@ -8,3 +8,4 @@ alias kevin='git log --graph --abbrev-commit --decorate --all --format=format:"%
 alias weather="curl wttr.in"
 alias activate='source `find . -name activate`'
 alias vim=nvim
+alias col="column -ts $'\t'"

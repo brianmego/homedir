@@ -58,13 +58,15 @@ else
     nmap <C-h> <C-w>h
 endif
 
-set t_8b=[48;2;%lu;%lu;%lum
-set t_8f=[38;2;%lu;%lu;%lum
+" set t_8b=[48;2;%lu;%lu;%lum
+" set t_8f=[38;2;%lu;%lu;%lum
 
+" set termguicolors
 set background=dark
-let g:airline_theme='quantum'
+" colorscheme solarized
+" let g:airline_theme='quantum'
 let g:quantum_black = 1
-colorscheme quantum
+colorscheme one
 set hidden
 set ttyfast                     " faster redraw
 set backspace=indent,eol,start
