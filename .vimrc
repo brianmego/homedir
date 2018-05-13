@@ -41,6 +41,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jiangmiao/auto-pairs'
+Plug 'joukevandermaas/vim-ember-hbs'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -139,7 +140,8 @@ let g:ackprg = 'ag --vimgrep'
 let g:deoplete#sources#jedi#show_docstring = 1
 
 " Neomake Settings
-autocmd! BufWritePost *.py Neomake
+" autocmd! BufWritePost *.py Neomake
+let g:neomake_open_list = 2
 map <leader>l :lopen<CR>
 
 " Search for selected text, forwards or backwards.
