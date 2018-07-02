@@ -5,13 +5,7 @@ filetype off                  " required
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
-
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin()
-
-" let Vundle manage Vundle, required
-" Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -28,20 +22,17 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-dispatch'
 Plug 'henrik/vim-indexed-search'
 Plug 'neomake/neomake'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jiangmiao/auto-pairs'
-Plug 'joukevandermaas/vim-ember-hbs'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -53,24 +44,21 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-if has('nvim')
-    nmap <BS> :<C-u>TmuxNavigateLeft<CR>
-else
-    nmap <C-h> <C-w>h
-endif
+nmap <C-h> <C-w>h
 
-set t_8b=[48;2;%lu;%lu;%lum
-set t_8f=[38;2;%lu;%lu;%lum
+" set t_8b=[48;2;%lu;%lu;%lum
+" set t_8f=[38;2;%lu;%lu;%lum
 
 set background=dark
-let g:airline_theme='quantum'
+" let g:airline_theme='quantum'
 let g:quantum_black = 1
-colorscheme quantum
+colorscheme one
 set hidden
 set ttyfast                     " faster redraw
+set lazyredraw
 set backspace=indent,eol,start
 set tabstop=4           " 4 space tab
-" set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 set smarttab
 set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
@@ -120,13 +108,11 @@ map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
 set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,*_server,dists,dist,node_modules,bower_components,tmp,logrotate.d,__pycache__/,.idea/,.git/,.*
-" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
+autocmd FileType python setlocal colorcolumn=80
 
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-let g:deoplete#enable_at_startup = 1
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-autocmd FileType python setlocal colorcolumn=80
 
 let g:indentLine_enabled = 0
 map <leader>> :IndentLinesToggle<CR>
@@ -134,11 +120,11 @@ map <leader>> :IndentLinesToggle<CR>
 " Set Vim.ack to use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
 
-" Set Autocompletion to show docstrings in a preview window
-let g:deoplete#sources#jedi#show_docstring = 1
+" Jedi settings
+let g:jedi#popup_select_first = 0
 
 " Neomake Settings
-" autocmd! BufWritePost *.py Neomake
+autocmd! BufWritePost *.py Neomake
 let g:neomake_open_list = 2
 map <leader>l :lopen<CR>
 
@@ -260,3 +246,7 @@ endfunction
 let autoreadargs={'autoread':1}
 execute WatchForChanges("*",autoreadargs)
 
+nnoremap <Up>     :resize +2<Cr>
+nnoremap <Down>   :resize -2<Cr>
+nnoremap <Left>   :vertical resize +2<Cr>
+nnoremap <Right>  :vertical resize -2<Cr>

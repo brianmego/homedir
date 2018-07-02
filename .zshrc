@@ -103,3 +103,4 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i
+source /home/brian/.antilles/antilles_completion.zsh
