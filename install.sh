@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+mkdir -p ~/.vim/autoload ~/.vim/bundle
 ln -svf $PWD/.vimrc ~/
 ln -svf $PWD/.zshrc ~/
 ln -svf $PWD/.zsh ~/

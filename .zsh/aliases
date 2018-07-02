@@ -9,6 +9,6 @@ alias kevin='git log --graph --abbrev-commit --decorate --all --format=format:"%
 alias weather="curl wttr.in"
 alias activate='source `find . -name activate`'
 alias col="column -ts $'\t'"
-alias vim=nvim
+# alias vim=nvim
 alias col="column -ts $'\t'"
 alias demo="export PS1='%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} ' && clear"
