@@ -33,6 +33,8 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-hclfmt'
 Plug 'jiangmiao/auto-pairs'
+Plug 'xolox/vim-notes'
+Plug 'xolox/vim-misc'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -248,5 +250,5 @@ execute WatchForChanges("*",autoreadargs)
 
 nnoremap <Up>     :resize +2<Cr>
 nnoremap <Down>   :resize -2<Cr>
-nnoremap <Left>   :vertical resize +2<Cr>
-nnoremap <Right>  :vertical resize -2<Cr>
+nnoremap <Left>   :vertical resize -2<Cr>
+nnoremap <Right>  :vertical resize +2<Cr>
