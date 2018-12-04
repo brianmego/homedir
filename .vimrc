@@ -60,7 +60,7 @@ set ttyfast                     " faster redraw
 set lazyredraw
 set backspace=indent,eol,start
 set tabstop=4           " 4 space tab
-set clipboard+=unnamedplus
+" set clipboard+=unnamedplus
 set smarttab
 set expandtab           " use spaces for tabs
 set softtabstop=4       " 4 space tab
@@ -123,7 +123,8 @@ map <leader>> :IndentLinesToggle<CR>
 let g:ackprg = 'ag --vimgrep'
 
 " Jedi settings
-let g:jedi#popup_select_first = 0
+set completeopt=menuone,preview
+let g:jedi#popup_on_dot = 0
 
 " Neomake Settings
 autocmd! BufWritePost *.py Neomake
