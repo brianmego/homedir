@@ -123,8 +123,9 @@ map <leader>> :IndentLinesToggle<CR>
 let g:ackprg = 'ag --vimgrep'
 
 " Jedi settings
-set completeopt=menuone,preview
-let g:jedi#popup_on_dot = 0
+" set completeopt=menuone,preview
+" let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
 
 " Neomake Settings
 autocmd! BufWritePost *.py Neomake
