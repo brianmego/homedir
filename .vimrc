@@ -109,7 +109,7 @@ map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,bootstrap,*_server,dists,dist,node_modules,bower_components,tmp,logrotate.d,__pycache__/,.idea/,.git/,.*
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,*_server,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 autocmd FileType python setlocal colorcolumn=80
@@ -126,6 +126,7 @@ let g:ackprg = 'ag --vimgrep'
 " set completeopt=menuone,preview
 " let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
+let g:jedi#use_splits_not_buffers = 'right'
 
 " Neomake Settings
 autocmd! BufWritePost *.py Neomake
