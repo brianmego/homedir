@@ -35,6 +35,7 @@ Plug 'fatih/vim-hclfmt'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
+Plug 'racer-rust/vim-racer'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -97,7 +98,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 let mapleader = " "
-map <leader>j :%!pypprint<CR>
+map <leader>j :%!jq . -<CR>
 map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
@@ -112,24 +113,31 @@ map <leader>. t.a<CR><esc>l
 set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,*_server,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
-autocmd FileType python setlocal colorcolumn=80
 
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-
 let g:indentLine_enabled = 0
 map <leader>> :IndentLinesToggle<CR>
-
 " Set Vim.ack to use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
+
+"""PYTHON
+autocmd FileType python setlocal colorcolumn=80
 
 " Jedi settings
 " set completeopt=menuone,preview
 " let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
-let g:jedi#use_splits_not_buffers = 'right'
+let g:jedi#use_splits_not_buffers = "right"
 
 " Neomake Settings
 autocmd! BufWritePost *.py Neomake
+"""/PYTHON
+
+"""RUST
+" let g:racer_cmd = "/home/user/.cargo/bin/racer"
+" let g:racer_experimental_completer = 1
+"""/RUST
+
 let g:neomake_open_list = 2
 map <leader>l :lopen<CR>
 
