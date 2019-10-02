@@ -1,0 +1,103 @@
+# My Account Details
+source "gpg -d ~/.mutt/passwords.gpg |"
+set imap_user = 'brianmego@gmail.com'
+set smtp_url = 'smtps://brianmego@smtp.gmail.com:465/'
+set from='brianmego@gmail.com'
+set realname='Brian Mego'
+set smtp_authenticators = 'gssapi:login'
+
+set editor = "vim"
+
+# Basic Config
+set folder = "imaps://brianmego@gmail.com@imap.gmail.com:993"
+set index_format = "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set sidebar_visible = no
+# set folder_format = "%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
+#set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+#set imap_check_subscribed
+#set hostname = gmail.com
+set timeout = 10
+set mail_check = 60
+set imap_keepalive = 300
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+All Mail"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+#set move = no
+#set include
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set auto_tag = yes
+ignore *
+unignore from date subject to cc
+hdr_order Date From To Cc
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+#bind editor ^T complete
+#bind editor <space> noop
+
+#Contacts
+set query_command="goobook query %s"
+bind editor <Tab> complete-query
+# macro index,pager a "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
+
+## Gmail style keyboard shortcuts
+#macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+#macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
+#macro index,pager gi "<change-folder>=INBOX<enter>" "Go to inbox"
+#macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
+#macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
+#macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+bind index G imap-fetch-mail
+
+# Colors
+source ~/.mutt/mutt-colors-solarized-dark-16.muttrc
+
+# URLs
+color body brightgreen black "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+color body brightgreen black "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+mono body bold "(http|ftp|news|telnet|finger)://[^ \"\t\r\n]*"
+mono body bold "mailto:[-a-z_0-9.]+@[-a-z_0-9.]+"
+
+# Coloring quoted text - coloring the first 7 levels:
+color quoted cyan black
+color quoted1 yellow black
+color quoted2 red black
+color quoted3 green black
+color quoted4 cyan black
+color quoted5 yellow black
+color quoted6 red black
+color quoted7 green black
+
+
+# header
+color header green black "^from:"
+color header green black "^to:"
+color header green black "^cc:"
+color header green black "^date:"
+color header yellow black "^newsgroups:"
+color header yellow black "^reply-to:"
+color header brightcyan black "^subject:"
+color header red black "^x-spam-rule:"
+color header green black "^x-mailer:"
+color header yellow black "^message-id:"
+color header yellow black "^Organization:"
+color header yellow black "^Organisation:"
+color header yellow black "^User-Agent:"
+color header yellow black "^message-id: .*pine"
+color header yellow black "^X-Fnord:"
+color header yellow black "^X-WebTV-Stationery:"
+color header yellow black "^X-Message-Flag:"
+color header yellow black "^X-Spam-Status:"
+color header yellow black "^X-SpamProbe:"
+color header red black "^X-SpamProbe: SPAM"
+
+# email addresses
+color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+

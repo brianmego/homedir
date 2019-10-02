@@ -7,5 +7,9 @@
 .ssh
 QA.pem
 .vim/.netrwhist
-.*
 sandbox
+.zsh/localrc
+.vim
+.mutt/cache
+.mutt/passwords.gpg
+.xmonad

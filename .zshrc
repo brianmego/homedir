@@ -60,7 +60,7 @@ ZSH_CUSTOM=$HOME/.zsh/
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:~/.local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
 if [ "$(uname)" '==' "Darwin" ]; then
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh

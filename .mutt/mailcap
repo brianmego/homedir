@@ -1,0 +1,4 @@
+text/html; w3m -o display_link_number=1 -I %{charset} -T text/html %s; copiousoutput;
+application/pdf; qpdfview %s; copiousoutput;
+image/jpeg; feh %s;
+image/*; feh %s;

@@ -11,4 +11,5 @@ ln -svf $PWD/.vim ~/
 ln -svf $PWD/.gitconfig ~/
 ln -svf $PWD/.pylintrc ~/
 ln -svf $PWD/.xmonad ~/
+ln -svf $PWD/.mutt ~/
 touch $PWD/.zsh/localrc
