@@ -1,35 +1,16 @@
-# My Account Details
-source "gpg -d ~/.mutt/passwords.gpg |"
-set imap_user = 'brianmego@gmail.com'
-set smtp_url = 'smtps://brianmego@smtp.gmail.com:465/'
-set from='brianmego@gmail.com'
-set realname='Brian Mego'
-set smtp_authenticators = 'gssapi:login'
-
 set editor = "vim"
 
 # Basic Config
-set folder = "imaps://brianmego@gmail.com@imap.gmail.com:993"
-set index_format = "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
 set sidebar_visible = no
-# set folder_format = "%2C %t %N %F %2l %-8.8u %-8.8g %8s %d %f"
-#set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
 set ssl_force_tls = yes
 set ssl_starttls = yes
-#set imap_check_subscribed
-#set hostname = gmail.com
 set timeout = 10
 set mail_check = 60
 set imap_keepalive = 300
-set postponed = "+Drafts"
-set record = "+Sent"
-set trash = "+All Mail"
 set header_cache=~/.mutt/cache/headers
 set message_cachedir=~/.mutt/cache/bodies
 set certificate_file=~/.mutt/certificates
-#set move = no
-#set include
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
 set auto_tag = yes
@@ -41,8 +22,9 @@ alternative_order text/plain text/enriched text/html
 #bind editor ^T complete
 #bind editor <space> noop
 
+source ~/.mutt/bmego.q2
+
 #Contacts
-set query_command="goobook query %s"
 bind editor <Tab> complete-query
 # macro index,pager a "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
 
@@ -100,4 +82,3 @@ color header red black "^X-SpamProbe: SPAM"
 
 # email addresses
 color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-

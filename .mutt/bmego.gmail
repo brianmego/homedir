@@ -1,0 +1,19 @@
+source "gpg -d ~/.mutt/gmail_passwords.gpg |"
+
+set imap_user = 'brianmego@gmail.com'
+set smtp_url = 'smtps://brianmego@smtp.gmail.com:465/'
+set from='brianmego@gmail.com'
+set realname='Brian Mego'
+set smtp_authenticators = 'gssapi:login'
+
+set folder = "imaps://brianmego@gmail.com@imap.gmail.com:993"
+set spoolfile=+INBOX
+set postponed = "+Drafts"
+set record = "+Sent"
+set trash = "+All Mail"
+
+set header_cache=~/.mutt/bmego.gmail.hcache
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
+
+# Contacts
+set query_command="goobook query %s"

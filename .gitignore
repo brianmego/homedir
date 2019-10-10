@@ -11,5 +11,7 @@ sandbox
 .zsh/localrc
 .vim
 .mutt/cache
-.mutt/passwords.gpg
+.mutt/*.gpg
+.mutt/*.hcache
+.mutt/mutt-ldap.pl
 .xmonad

@@ -22,6 +22,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-dispatch'
 Plug 'henrik/vim-indexed-search'
 Plug 'neomake/neomake'
 Plug 'christoomey/vim-tmux-navigator'
@@ -102,15 +103,16 @@ map <leader>j :%!jq . -<CR>
 map <leader>s :Gstatus<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
-map <leader>t :TlistToggle<CR>
+map <leader>t :Start -wait=always pytest %<CR>
 map <leader>p :pta<CR>
 map <leader>i oimport ipdb<CR>ipdb.set_trace()<esc>
 map <leader>e :Vexplore<CR>
+map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,*_server,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 

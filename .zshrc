@@ -99,3 +99,5 @@ export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[
 fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i
+
+setopt extendedglob
