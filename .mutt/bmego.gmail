@@ -5,6 +5,8 @@ set smtp_url = 'smtps://brianmego@smtp.gmail.com:465/'
 set from='brianmego@gmail.com'
 set realname='Brian Mego'
 set smtp_authenticators = 'gssapi:login'
+set sidebar_visible=no
+set signature="~/.mutt/gmail_signature"
 
 set folder = "imaps://brianmego@gmail.com@imap.gmail.com:993"
 set spoolfile=+INBOX
@@ -13,7 +15,6 @@ set record = "+Sent"
 set trash = "+All Mail"
 
 set header_cache=~/.mutt/bmego.gmail.hcache
-macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
 
 # Contacts
-set query_command="goobook query %s"
+set query_command=

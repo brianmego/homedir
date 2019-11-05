@@ -12,11 +12,10 @@ set use_from = yes
 set smtp_url = smtp://$imap_user@smtp-mail.outlook.com:587
 set record="=Sent"
 set postponed="=Drafts"
+set trash="=Archive"
 
 set header_cache=~/.mutt/bmego.q2.hcache
-#source "~/.mutt/mutt-pass.sh q2/$imap_user |"
-macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.gmail<enter><change-folder>!<enter>
-mailboxes =INBOX '=INBOX/SDK Emergency' '=INBOX/SDK Support' '=INBOX/SDK team' '=INBOX/Needs Attention'
+mailboxes =INBOX '=INBOX/SDK Emergency' '=INBOX/SDK Support' '=INBOX/SDK team' '=INBOX/Needs Attention' '=INBOX/SDK Logs'
 
 # Contacts
 set query_command="~/.mutt/mutt-ldap.pl $imap_pass '%s'"

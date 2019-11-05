@@ -1,4 +1,4 @@
-set editor = "vim"
+set editor="vim \"+set spell\" +/^$/ +9"
 
 # Basic Config
 set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
@@ -19,9 +19,17 @@ unignore from date subject to cc
 hdr_order Date From To Cc
 auto_view text/html
 alternative_order text/plain text/enriched text/html
+set menu_scroll = yes
+set pager_stop=no
+set pager_context=5
+# set pager_index_lines=6
 #bind editor ^T complete
 #bind editor <space> noop
 
+folder-hook 'bmego.q2' 'source ~/.mutt/bmego.q2'
+folder-hook 'bmego.gmail' 'source ~/.mutt/bmego.gmail'
+macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
+macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/bmego.gmail<enter><change-folder>!<enter>
 source ~/.mutt/bmego.q2
 
 #Contacts
@@ -36,6 +44,8 @@ bind editor <Tab> complete-query
 #macro index,pager ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 #macro index,pager gs "<change-folder>=[Gmail]/Starred<enter>" "Go to starred messages"
 #macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
+macro pager j "<next-line>"
+macro pager k "<previous-line>"
 bind index G imap-fetch-mail
 
 # Colors
@@ -82,3 +92,4 @@ color header red black "^X-SpamProbe: SPAM"
 
 # email addresses
 color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+alias Hannah_Howard Hannah Howard <hannah@code2college.org>

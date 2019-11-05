@@ -1,3 +1,4 @@
-text/html; w3m -o display_link_number=1 -I %{charset} -T text/html %s; copiousoutput;
-application/pdf; open %s; copiousoutput;
-image/*; open %s;
+text/html; w3m -o display_link_number=1 -I %{charset} -T text/html %s; copiousoutput
+application/pdf; ~/.mutt/view_attachment.sh %s pdf
+image/*; ~/.mutt/view_attachment.sh %s jpg
+application/*; ~/.mutt/view_attachment.sh %s
