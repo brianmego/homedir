@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Config.Desktop(desktopConfig)
 import qualified XMonad.StackSet as W
+import XMonad.Actions.MouseResize
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers(doFullFloat,isFullscreen)
@@ -60,11 +61,13 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     t = 0.95 - h
     l = 0.95 - w
 
+myLayoutHook = mouseResize $ spacing 2 $ layoutHook desktopConfig
+
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ ewmh $ desktopConfig {
         manageHook = manageDocks <+> manageHook desktopConfig <+> (isFullscreen --> doFullFloat) <+> manageScratchPad
-        , layoutHook = layoutHook desktopConfig
+        , layoutHook = myLayoutHook
         , borderWidth        = 2
         , normalBorderColor  = "#292d3e"
         , focusedBorderColor = "#bbc5ff"
