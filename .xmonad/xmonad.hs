@@ -7,6 +7,7 @@ import XMonad.Hooks.ManageHelpers(doFullFloat,isFullscreen)
 import XMonad.Hooks.EwmhDesktops(fullscreenEventHook,ewmh)
 import XMonad.Util.Scratchpad
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
 import Graphics.X11.ExtraTypes.XF86
@@ -62,15 +63,18 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ ewmh $ desktopConfig {
-        manageHook = manageDocks <+> manageHook desktopConfig <+> (isFullscreen --> doFullFloat) <+> manageScratchPad,
-        layoutHook = avoidStruts $ layoutHook desktopConfig,
-        handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook,
-        startupHook = do spawn "~/.xmonad/startup.sh",
-        logHook = dynamicLogWithPP xmobarPP {
-          ppOutput = hPutStrLn xmproc,
-          ppTitle = xmobarColor "lightblue" "" . shorten 50
-        },
-        terminal = myTerminal
+        manageHook = manageDocks <+> manageHook desktopConfig <+> (isFullscreen --> doFullFloat) <+> manageScratchPad
+        , layoutHook = layoutHook desktopConfig
+        , borderWidth        = 2
+        , normalBorderColor  = "#292d3e"
+        , focusedBorderColor = "#bbc5ff"
+        , handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook
+        , startupHook = do spawn "~/.xmonad/startup.sh"
+        , logHook = dynamicLogWithPP xmobarPP {
+            ppOutput = hPutStrLn xmproc,
+            ppTitle = xmobarColor "lightblue" "" . shorten 50
+        }
+        ,terminal = myTerminal
         -- Run xmodmap to get mod key possibilities
         , modMask = mod4Mask --Rebind Mod to the Meta Key
         } `additionalKeysP` myKeys
