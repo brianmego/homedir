@@ -17,4 +17,4 @@ set trash = "+All Mail"
 set header_cache=~/.mutt/bmego.gmail.hcache
 
 # Contacts
-set query_command=
+set query_command="goobook query %s"

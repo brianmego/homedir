@@ -13,5 +13,7 @@ sandbox
 .mutt/cache
 .mutt/*.gpg
 .mutt/*.hcache
+.mutt/*.hcache-lock
 .mutt/mutt-ldap.pl
 .xmonad
+.mutt/aliases
