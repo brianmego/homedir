@@ -74,10 +74,15 @@ main = do
         , handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook
         , startupHook = do spawn "~/.xmonad/startup.sh"
         , logHook = dynamicLogWithPP xmobarPP {
-            ppOutput = hPutStrLn xmproc,
-            ppTitle = xmobarColor "lightblue" "" . shorten 50
+            ppOutput = hPutStrLn xmproc
+            , ppTitle = xmobarColor "lightblue" "" . shorten 50
+            , ppHidden = noScratchPad
         }
         ,terminal = myTerminal
         -- Run xmodmap to get mod key possibilities
         , modMask = mod4Mask --Rebind Mod to the Meta Key
         } `additionalKeysP` myKeys
+
+        where
+
+          noScratchPad ws = if ws == "NSP" then "" else ws
