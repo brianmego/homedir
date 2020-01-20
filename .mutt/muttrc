@@ -5,6 +5,7 @@ set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
 set sidebar_visible = no
 set ssl_force_tls = yes
 set ssl_starttls = yes
+set markers = no
 set timeout = 10
 set mail_check = 60
 set imap_keepalive = 300
@@ -32,7 +33,7 @@ set pipe_decode = yes
 macro pager V "<pipe-message>w3m -o display_link_number=1 -I 'utf-8' -T text/html<enter>"
 macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
 macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/bmego.gmail<enter><change-folder>!<enter>
-source ~/.mutt/bmego.q2
+source ~/.mutt/bmego.gmail
 
 #Contacts
 bind editor <Tab> complete-query
@@ -48,6 +49,7 @@ bind editor <Tab> complete-query
 #macro index,pager gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro pager j "<next-line>"
 macro pager k "<previous-line>"
+macro attach 'V' "<pipe-entry>w3m -T text/html<enter>"
 bind index G imap-fetch-mail
 
 # Colors
@@ -94,4 +96,3 @@ color header red black "^X-SpamProbe: SPAM"
 
 # email addresses
 color body brightgreen black "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
-alias Hannah_Howard Hannah Howard <hannah@code2college.org>
