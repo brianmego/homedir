@@ -1,4 +1,4 @@
-set editor="vim \"+set spell\" +/^$/ +9"
+set editor="vim '+/^$/' '+normal O' '+startinsert'"
 
 # Basic Config
 set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
@@ -28,6 +28,8 @@ set pager_context=5
 
 folder-hook 'bmego.q2' 'source ~/.mutt/bmego.q2'
 folder-hook 'bmego.gmail' 'source ~/.mutt/bmego.gmail'
+set pipe_decode = yes
+macro pager V "<pipe-message>w3m -o display_link_number=1 -I 'utf-8' -T text/html<enter>"
 macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
 macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/bmego.gmail<enter><change-folder>!<enter>
 source ~/.mutt/bmego.q2

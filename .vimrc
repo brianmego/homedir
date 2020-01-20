@@ -100,12 +100,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 let mapleader = " "
 map <leader>j :%!jq . -<CR>
-map <leader>s :Gstatus<CR>
+map <leader>s :Gstatus!<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>t :Start -wait=always pytest -vv %<CR>
 map <leader>p :pta<CR>
-map <leader>i oimport ipdb<CR>ipdb.set_trace()<esc>
+map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>

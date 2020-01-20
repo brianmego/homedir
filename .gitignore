@@ -9,6 +9,7 @@ QA.pem
 .vim/.netrwhist
 sandbox
 .zsh/localrc
+.bashrc_local
 .vim
 .mutt/cache
 .mutt/*.gpg

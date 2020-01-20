@@ -14,3 +14,4 @@ ln -svf $PWD/.xmonad ~/
 ln -svf $PWD/.mutt ~/
 ln -svf $PWD/.mutt/mailcap ~/.mailcap
 touch $PWD/.zsh/localrc
+touch $PWD/.bashrc_local
