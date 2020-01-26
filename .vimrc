@@ -37,6 +37,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust'
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -132,16 +133,21 @@ let g:jedi#popup_select_first = 0
 let g:jedi#use_splits_not_buffers = "right"
 
 " Neomake Settings
-autocmd! BufWritePost *.py Neomake
+" When reading a buffer (after 1s), and when writing (no delay).
+call neomake#configure#automake('rw', 1000)
 """/PYTHON
 
 """RUST
-" let g:racer_cmd = "/home/user/.cargo/bin/racer"
-" let g:racer_experimental_completer = 1
+let g:racer_cmd = "/home/brian/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+let g:racer_insert_paren = 1
+au FileType rust nmap K <Plug>(rust-doc)
+au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
+" au FileType rust nmap gt <Plug>(rust-def-tab)
 """/RUST
 
-let g:neomake_open_list = 2
-map <leader>l :lopen<CR>
+let g:neomake_open_list = 4
+" map <leader>l :lopen<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
