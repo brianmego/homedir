@@ -2,7 +2,7 @@
     ui = true
 [user]
     name = Brian Mego
-    email = brianmego@gmail.com
+    email = brian.mego@q2ebanking.com
 [alias]
     co = checkout
     ec = config --global -e
@@ -16,7 +16,7 @@
 [push]
     default = simple
 [core]
-    editor = /usr/bin/vim
+    editor = /usr/local/bin/vim
     autocrlf = input
     pager = less -F -X
 [advice]

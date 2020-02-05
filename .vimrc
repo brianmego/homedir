@@ -10,34 +10,52 @@ call plug#begin()
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+"
+" Editor
 Plug 'rakr/vim-one'
 Plug 'bling/vim-airline'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'kien/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
-Plug 'henrik/vim-indexed-search'
 Plug 'neomake/neomake'
+Plug 'henrik/vim-indexed-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/taglist.vim'
 Plug 'SirVer/ultisnips'
-Plug 'davidhalter/jedi-vim'
 Plug 'Yggdroot/indentLine'
-Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'mileszs/ack.vim'
-Plug 'fatih/vim-hclfmt'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-Plug 'racer-rust/vim-racer'
+
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Python
+Plug 'davidhalter/jedi-vim'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+" Rust
 Plug 'rust-lang/rust'
+Plug 'racer-rust/vim-racer'
+
+" Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'burnettk/vim-angular'
+Plug 'othree/javascript-libraries-syntax.vim'
+
+" Syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'fatih/vim-hclfmt'
+Plug 'lepture/vim-jinja'
+
 
 " All of your Plugins must be added before the following line
 call plug#end()              " required
@@ -125,6 +143,10 @@ let g:ackprg = 'ag --vimgrep'
 
 """PYTHON
 autocmd FileType python setlocal colorcolumn=80
+autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
+
+"""HTML
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 " Jedi settings
 " set completeopt=menuone,preview
@@ -146,7 +168,7 @@ au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
 " au FileType rust nmap gt <Plug>(rust-def-tab)
 """/RUST
 
-let g:neomake_open_list = 4
+let g:neomake_open_list = 2
 " map <leader>l :lopen<CR>
 
 " Search for selected text, forwards or backwards.
