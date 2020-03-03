@@ -1,0 +1,26 @@
+snippet lint
+ # pylint: disable=${1:import-error}
+endsnippet
+
+snippet cover
+$0 # pragma: no cover
+endsnippet
+
+snippet test
+def test_${1:func_name}():
+	actual = ${2:func_to_test}
+	expected = ${3:'foo'}
+	assert actual == expected
+endsnippet
+
+snippet atest
+@pytest.mark.asyncio
+async def test_${1:func_name}():
+	actual = await ${2:func_to_test}
+	expected = ${3:'foo'}
+	assert actual == expected
+endsnippet
+
+snippet parametrize
+@pytest.mark.parametrize('${1:param1}, ${2:param2}', ${3:LIST_VAR})
+endsnippet

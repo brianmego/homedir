@@ -1,4 +1,4 @@
-set editor="vim '+/^$/' '+normal O' '+startinsert'"
+set editor="vim +1 '+normal O' '+startinsert'"
 
 # Basic Config
 set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
