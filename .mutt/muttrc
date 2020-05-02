@@ -1,4 +1,4 @@
-set editor="vim '+/^$/' '+normal O' '+startinsert'"
+set editor="vim '+/^$/' '+normal O' '+startinsert' -c 'noh'"
 
 # Basic Config
 set index_format = "%4C %Z %{%b %d at %H:%M}   %-15.15L (%?l?%4l&%4c?) %s"
@@ -33,7 +33,7 @@ set pipe_decode = yes
 macro pager V "<pipe-message>w3m -o display_link_number=1 -I 'utf-8' -T text/html<enter>"
 macro index <f5> '<sync-mailbox><enter-command>source ~/.mutt/bmego.q2<enter><change-folder>!<enter>
 macro index <f6> '<sync-mailbox><enter-command>source ~/.mutt/bmego.gmail<enter><change-folder>!<enter>
-source ~/.mutt/bmego.gmail
+source ~/.mutt/bmego.active
 
 #Contacts
 bind editor <Tab> complete-query

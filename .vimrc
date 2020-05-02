@@ -16,7 +16,9 @@ Plug 'rakr/vim-one'
 Plug 'bling/vim-airline'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
@@ -34,6 +36,7 @@ Plug 'mileszs/ack.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
+Plug 'ycm-core/YouCompleteMe'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -48,7 +51,6 @@ Plug 'racer-rust/vim-racer'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
-Plug 'burnettk/vim-angular'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 " Syntax
@@ -81,12 +83,12 @@ set ttyfast                     " faster redraw
 set lazyredraw
 set backspace=indent,eol,start
 set tabstop=4           " 4 space tab
+set softtabstop=4       " 4 space tab
+set shiftwidth=4
 " set clipboard+=unnamedplus
 set smarttab
 set expandtab           " use spaces for tabs
-set softtabstop=4       " 4 space tab
 set visualbell
-set shiftwidth=4
 set modelines=1
 set splitright
 set splitbelow
@@ -117,6 +119,7 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap <C-P> :Files<CR>
 let mapleader = " "
 map <leader>j :%!jq . -<CR>
 map <leader>s :Gstatus!<CR>
@@ -148,11 +151,18 @@ autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
 """HTML
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+"""JS
+autocmd FileType typescript set tabstop=2
+autocmd FileType typescript set softtabstop=2
+autocmd FileType typescript set shiftwidth=2
+
 " Jedi settings
-" set completeopt=menuone,preview
-" let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
 let g:jedi#use_splits_not_buffers = "right"
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 " Neomake Settings
 " When reading a buffer (after 1s), and when writing (no delay).

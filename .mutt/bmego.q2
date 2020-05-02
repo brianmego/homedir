@@ -10,7 +10,7 @@ set realname = "Brian Mego"
 set from = brian.mego@q2ebanking.com
 set use_from = yes
 set smtp_url = smtp://$imap_user@smtp-mail.outlook.com:587
-set record="=Sent"
+set record="=Sent Items"
 set postponed="=Drafts"
 set trash="=Archive"
 

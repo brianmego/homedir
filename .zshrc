@@ -101,3 +101,10 @@ fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i
 
 setopt extendedglob
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+FD_OPTIONS="--follow --exclude .git --exclude node_modules"
+export FZF_DEFAULT_OPTS="--no-mouse --reverse --multi --inline-info --preview='bat --theme=TwoDark --style=numbers --color=always {}' --preview-window='right:hidden:wrap' --bind='f2:toggle-preview'"
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd $FD_OPTIONS"
+export BAT_PAGER="less -R"
