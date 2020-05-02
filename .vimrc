@@ -47,7 +47,6 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 " Rust
 Plug 'rust-lang/rust'
-Plug 'racer-rust/vim-racer'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -139,6 +138,7 @@ set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,
 set laststatus=2
 
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:ycm_key_list_select_completion=[]
 let g:indentLine_enabled = 0
 map <leader>> :IndentLinesToggle<CR>
 " Set Vim.ack to use ag instead of ack
@@ -163,16 +163,18 @@ let g:jedi#use_splits_not_buffers = "right"
 " YouCompleteMe
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+let g:ycm_clangd_binary_path = "/home/brian/ycm_tmp/llvm_root_dir/bin/clangd"
 
 " Neomake Settings
 " When reading a buffer (after 1s), and when writing (no delay).
 call neomake#configure#automake('rw', 1000)
+let g:ycm_always_populate_location_list = 1
 """/PYTHON
 
 """RUST
-let g:racer_cmd = "/home/brian/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let g:racer_insert_paren = 1
+" let g:racer_cmd = "/home/brian/.cargo/bin/racer"
+" let g:racer_experimental_completer = 1
+" let g:racer_insert_paren = 1
 au FileType rust nmap K <Plug>(rust-doc)
 au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
 " au FileType rust nmap gt <Plug>(rust-def-tab)

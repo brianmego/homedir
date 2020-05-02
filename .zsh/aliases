@@ -11,3 +11,4 @@ alias activate='source `find . -name activate`'
 alias col="column -ts $'\t'"
 alias demo="export PS1='%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} ' && clear"
 alias pirr="pip install -r requirements.txt"
+alias docker_clean='docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)'
