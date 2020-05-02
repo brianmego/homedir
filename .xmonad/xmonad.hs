@@ -24,10 +24,11 @@ myKeys =
 
     -- Hotbar Programs
     , ("M1-1", spawn "vivaldi")
-    , ("M1-2", spawn "_JAVA_AWT_WM_NONREPARENTING=1 pycharm")
+    , ("M1-2", spawn "_JAVA_AWT_WM_NONREPARENTING=1 pycharm-professional")
     , ("M1-3", spawn "google-chrome-stable")
 
     --Toggles
+    , ("M-<F8>", spawn "toggle_vpn")
     , ("M-<F10>", spawn "toggle_xscreensaver")
     , ("M-<F11>", spawn "toggle_compositor")
     , ("M-<F12>", spawn "toggle_xautolock")
@@ -36,9 +37,9 @@ myKeys =
     , ("<XF86AudioLowerVolume>", spawn "amixer sset Master 5%- unmute")
     , ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 5%+ unmute")
     , ("<XF86AudioMute>",   spawn "amixer set Master toggle")  -- Bug prevents it from toggling correctly in 12.04.
-    , ("<F86XK_AudioNext>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
-    , ("<F86XK_AudioPrev>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
-    , ("<F86XK_AudioPlay>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
+    , ("<XF86AudioNext>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
+    , ("<XF86AudioPrev>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+    , ("<XF86AudioPlay>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
 
     -- Power
     , ("<XF86Sleep>", spawn "sudo /usr/sbin/pm-suspend")
