@@ -29,7 +29,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'neomake/neomake'
 Plug 'henrik/vim-indexed-search'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-scripts/taglist.vim'
+Plug 'majutsushi/tagbar'
 Plug 'SirVer/ultisnips'
 Plug 'Yggdroot/indentLine'
 Plug 'mileszs/ack.vim'
@@ -126,6 +126,7 @@ map <leader>s :Gstatus!<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>t :Start -wait=always pytest -vv %<CR>
+map <leader>b :TagbarToggle<CR>
 map <leader>p :pta<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
