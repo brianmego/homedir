@@ -18,6 +18,7 @@ sandbox
 *.sw[op]
 
 #mutt
+.mutt/bmego.active
 .mutt/aliases
 .mutt/cache
 .mutt/*.gpg

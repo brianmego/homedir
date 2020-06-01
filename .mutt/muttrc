@@ -50,6 +50,7 @@ bind editor <Tab> complete-query
 macro pager j "<next-line>"
 macro pager k "<previous-line>"
 macro attach 'V' "<pipe-entry>w3m -T text/html<enter>"
+bind attach <return> view-mailcap
 bind index G imap-fetch-mail
 
 # Colors

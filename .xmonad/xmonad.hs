@@ -24,8 +24,6 @@ myKeys =
 
     -- Hotbar Programs
     , ("M1-1", spawn "vivaldi")
-    , ("M1-2", spawn "_JAVA_AWT_WM_NONREPARENTING=1 pycharm-professional")
-    , ("M1-3", spawn "google-chrome-stable")
 
     --Toggles
     , ("M-<F8>", spawn "toggle_vpn")
