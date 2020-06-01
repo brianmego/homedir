@@ -20,6 +20,7 @@ sandbox
 #mutt
 .mutt/bmego.active
 .mutt/aliases
+.mutt/gmail_passwords
 .mutt/cache
 .mutt/*.gpg
 .mutt/*.hcache
