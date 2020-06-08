@@ -11,6 +11,7 @@ ln -svf $PWD/.vim ~/
 ln -svf $PWD/.gitconfig ~/
 ln -svf $PWD/.pylintrc ~/
 ln -svf $PWD/.xmonad ~/
+ln -svf $PWD/.xmobarrc ~/
 ln -svf $PWD/.mutt ~/
 ln -svf $PWD/.mutt/mailcap ~/.mailcap
 touch $PWD/.zsh/localrc
