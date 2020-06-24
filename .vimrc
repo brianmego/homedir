@@ -125,10 +125,11 @@ map <leader>s :Gstatus!<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>t :Start -wait=always pytest -vv %<CR>
-map <leader>b :TagbarToggle<CR>
+map <leader>T :TagbarToggle<CR>
 map <leader>p :pta<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
+nnoremap <leader>R :YcmCompleter GoToReferences<CR>
 map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
