@@ -166,6 +166,10 @@ let g:jedi#use_splits_not_buffers = "right"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 let g:ycm_clangd_binary_path = "/home/brian/ycm_tmp/llvm_root_dir/bin/clangd"
+let g:ycm_auto_hover = "''"
+set <F2>=OQ
+nmap <F2> <plug>(YCMHover)
+nmap <leader>D <plug>(YCMHover)
 
 " Neomake Settings
 " When reading a buffer (after 1s), and when writing (no delay).

@@ -1,0 +1,31 @@
+Config { 
+         position = TopP 0 0
+       , font = "xft:Bitstream Vera Sans Mono:size=12:bold:antialias=true"
+       , bgColor = "#31363b"
+       , fgColor = "grey"
+       , border = BottomB
+       , sepChar = "%"
+       , alignSep = "}{"
+       , commands = [ Run Cpu [ "--Low"      , "3"
+                              , "--High"     , "50"
+                              , "--normal"  , "green"
+                              , "--high"    , "red"
+                              , "-m", "3"
+                              ] 20
+                    , Run Memory ["-t","Mem: <usedratio>%"] 30
+                    , Run DynNetwork [ "--template" , "Net:<rx>kB/s<tx>kB/s"
+                                     , "--Low"      , "10000"       -- units: B/s
+                                     , "--High"     , "50000"       -- units: B/s
+                                     , "--low"      , "green"
+                                     , "--normal"   , "green"
+                                     , "--high"     , "red" 
+                                     , "--minwidth" , "4"
+                                     ] 10
+                    , Run Date "%a %b %_d %H:%M:%S" "date" 10
+                    , Run Volume "default" "Master" [] 1
+                    , Run Com "check_autolock" [] "" 1
+                    , Run Com "check_xscreensaver" [] "" 1
+                    , Run StdinReader
+                    ]
+       , template = "%StdinReader% }{ V: %check_vpn%  S: %check_xscreensaver%  L: %check_autolock% | %cpu%  %memory% | %dynnetwork% | %default:Master%   <fc=#ee9a00>%date%</fc>"
+       }
