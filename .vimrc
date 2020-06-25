@@ -16,7 +16,7 @@ Plug 'rakr/vim-one'
 Plug 'bling/vim-airline'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
-" Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-unimpaired'
@@ -26,7 +26,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 Plug 'henrik/vim-indexed-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
@@ -36,17 +36,17 @@ Plug 'mileszs/ack.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
 
 " Git
 Plug 'tpope/vim-fugitive'
 
 " Python
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 
 " Rust
-Plug 'rust-lang/rust'
+" Plug 'rust-lang/rust'
 
 " Javascript
 Plug 'pangloss/vim-javascript'
@@ -76,7 +76,10 @@ nmap <C-h> <C-w>h
 set background=dark
 " let g:airline_theme='quantum'
 let g:quantum_black = 1
+let g:airline#extensions#coc#enabled = 0
 colorscheme one
+set nobackup
+set nowritebackup
 set hidden
 set ttyfast                     " faster redraw
 set lazyredraw
@@ -108,6 +111,27 @@ set incsearch           " search as characters are entered
 set hlsearch            " highlight all matches
 set sessionoptions-=blank  "Do not save blank windows when saving sessions
 set nowrap
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.pyc$'
@@ -129,14 +153,14 @@ map <leader>T :TagbarToggle<CR>
 map <leader>p :pta<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
-nnoremap <leader>R :YcmCompleter GoToReferences<CR>
+" nnoremap <leader>R :YcmCompleter GoToReferences<CR>
 map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
 set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
@@ -145,6 +169,41 @@ let g:indentLine_enabled = 0
 map <leader>> :IndentLinesToggle<CR>
 " Set Vim.ack to use ag instead of ack
 let g:ackprg = 'ag --vimgrep'
+
+"""COMPLETION
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <leader>l :CocDiagnostics<CR>
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Symbol renaming.
+nmap <leader>r <Plug>(coc-rename)
+
+augroup mygroup
+  autocmd!
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 """PYTHON
 autocmd FileType python setlocal colorcolumn=80
@@ -158,35 +217,35 @@ autocmd FileType typescript set tabstop=2
 autocmd FileType typescript set softtabstop=2
 autocmd FileType typescript set shiftwidth=2
 
-" Jedi settings
-let g:jedi#completions_enabled = 0
-let g:jedi#use_splits_not_buffers = "right"
+" " Jedi settings
+" let g:jedi#completions_enabled = 0
+" let g:jedi#use_splits_not_buffers = "right"
 
-" YouCompleteMe
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-let g:ycm_clangd_binary_path = "/home/brian/ycm_tmp/llvm_root_dir/bin/clangd"
-let g:ycm_auto_hover = "''"
-set <F2>=OQ
-nmap <F2> <plug>(YCMHover)
-nmap <leader>D <plug>(YCMHover)
+" " YouCompleteMe
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
+" let g:ycm_clangd_binary_path = "/home/brian/ycm_tmp/llvm_root_dir/bin/clangd"
+" let g:ycm_auto_hover = "''"
+" set <F2>=OQ
+" nmap <F2> <plug>(YCMHover)
+" nmap <leader>D <plug>(YCMHover)
 
 " Neomake Settings
 " When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('rw', 1000)
-let g:ycm_always_populate_location_list = 1
+" call neomake#configure#automake('rw', 1000)
+" let g:ycm_always_populate_location_list = 1
 """/PYTHON
 
 """RUST
 " let g:racer_cmd = "/home/brian/.cargo/bin/racer"
 " let g:racer_experimental_completer = 1
 " let g:racer_insert_paren = 1
-au FileType rust nmap K <Plug>(rust-doc)
-au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
+" au FileType rust nmap K <Plug>(rust-doc)
+" au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
 " au FileType rust nmap gt <Plug>(rust-def-tab)
 """/RUST
 
-let g:neomake_open_list = 2
+" let g:neomake_open_list = 2
 " map <leader>l :lopen<CR>
 
 " Search for selected text, forwards or backwards.
