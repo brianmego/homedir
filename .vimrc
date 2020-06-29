@@ -75,8 +75,9 @@ nmap <C-h> <C-w>h
 
 set background=dark
 " let g:airline_theme='quantum'
-let g:quantum_black = 1
+" let g:quantum_black = 1
 let g:airline#extensions#coc#enabled = 0
+let g:one_allow_italics = 1
 colorscheme one
 set nobackup
 set nowritebackup
@@ -176,7 +177,7 @@ let g:ackprg = 'ag --vimgrep'
 set shortmess+=c
 
 " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <F1> CocActionAsync('showSignatureHelp')
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>d <Plug>(coc-definition)
@@ -188,6 +189,9 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Symbol renaming.
 nmap <leader>r <Plug>(coc-rename)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup mygroup
   autocmd!
