@@ -26,6 +26,7 @@ sandbox
 .mutt/*.hcache
 .mutt/*.hcache-lock
 .mutt/mutt-ldap.pl
+.mutt/mailcap
 
 #xmonad
 .xmonad

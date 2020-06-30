@@ -13,6 +13,13 @@ ln -svf $PWD/.pylintrc ~/
 ln -svf $PWD/.xmonad ~/
 ln -svf $PWD/.xmobarrc ~/
 ln -svf $PWD/.mutt ~/
-ln -svf $PWD/.mutt/mailcap ~/.mailcap
+
 touch $PWD/.zsh/localrc
 touch $PWD/.bashrc_local
+
+if [[ `uname` == 'Linux' ]]; then
+    ln -svf mailcap.linux $PWD/.mutt/mailcap
+else
+    ln -svf mailcap.osx $PWD/.mutt/mailcap
+fi
+ln -svf $PWD/.mutt/mailcap ~/.mailcap
