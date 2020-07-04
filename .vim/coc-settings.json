@@ -1,0 +1,16 @@
+{
+    "python.jediPath": "~/.local/lib/python3.7/site-packages",
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    },
+    "erlang_ls.trace.server": "off"
+}

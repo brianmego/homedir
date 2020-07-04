@@ -16,7 +16,6 @@ Plug 'rakr/vim-one'
 Plug 'bling/vim-airline'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-unimpaired'
@@ -37,6 +36,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
 " Plug 'ycm-core/YouCompleteMe'
+
+" Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc-python'
+Plug 'neoclide/coc-json'
+Plug 'neoclide/coc-html'
+Plug 'neoclide/coc-css'
+Plug 'neoclide/coc-rls'
 
 " Git
 Plug 'tpope/vim-fugitive'
