@@ -39,13 +39,16 @@ Plug 'xolox/vim-misc'
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'hyhugh/coc-erlang_ls', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver'
-Plug 'neoclide/coc-python'
-Plug 'neoclide/coc-json'
-Plug 'neoclide/coc-html'
-Plug 'neoclide/coc-css'
-Plug 'neoclide/coc-rls'
+let g:coc_global_extensions = [
+    \ 'coc-erlang_ls',
+    \ 'coc-tsserver',
+    \ 'coc-snippets',
+    \ 'coc-python',
+    \ 'coc-json',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-rls'
+\ ]
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -169,7 +172,7 @@ map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
 map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*,*.beam
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
@@ -186,6 +189,7 @@ let g:ackprg = 'ag --vimgrep'
 set shortmess+=c
 
 " Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
 inoremap <silent><expr> <F1> CocActionAsync('showSignatureHelp')
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)

@@ -23,9 +23,10 @@ myKeys =
     , ("M-s", spawn "import ~/Pictures/Screenshots/$(date +%m-%d-%yT%H.%M.%S).jpg")
 
     -- Hotbar Programs
-    , ("M1-1", spawn "vivaldi")
+    -- , ("M1-1", spawn "vivaldi")
 
     --Toggles
+    , ("M-<F7>", spawn "notify-send DUNST_COMMAND_TOGGLE")
     , ("M-<F8>", spawn "toggle_vpn")
     , ("M-<F10>", spawn "toggle_xscreensaver")
     , ("M-<F11>", spawn "toggle_compositor")
