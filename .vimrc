@@ -161,7 +161,7 @@ map <leader>j :%!jq . -<CR>
 map <leader>s :Gstatus!<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
-map <leader>t :Start -wait=always pytest -vv %<CR>
+map <leader>t :Start -wait=always pytest -svv %<CR>
 map <leader>T :TagbarToggle<CR>
 map <leader>p :pta<CR>
 map <leader>i obreakpoint()<esc>
@@ -191,9 +191,11 @@ set shortmess+=c
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-@> coc#refresh()
 inoremap <silent><expr> <F1> CocActionAsync('showSignatureHelp')
+inoremap <silent><expr> <F2> coc#refresh()
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>D :vsp<CR><Plug>(coc-definition)  " Open in Vertical split
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
