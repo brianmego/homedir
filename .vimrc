@@ -156,6 +156,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-P> :Files<CR>
+nnoremap <C-F> :Rg 
 let mapleader = " "
 map <leader>j :%!jq . -<CR>
 map <leader>s :Gstatus!<CR>
@@ -187,6 +188,11 @@ let g:ackprg = 'ag --vimgrep'
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-@> coc#refresh()
@@ -228,44 +234,8 @@ endfunction
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
 
-"""HTML
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
-"""JS
-autocmd FileType typescript set tabstop=2
-autocmd FileType typescript set softtabstop=2
-autocmd FileType typescript set shiftwidth=2
-
-" " Jedi settings
-" let g:jedi#completions_enabled = 0
-" let g:jedi#use_splits_not_buffers = "right"
-
-" " YouCompleteMe
-" let g:ycm_key_list_select_completion=[]
-" let g:ycm_key_list_previous_completion=[]
-" let g:ycm_clangd_binary_path = "/home/brian/ycm_tmp/llvm_root_dir/bin/clangd"
-" let g:ycm_auto_hover = "''"
-" set <F2>=OQ
-" nmap <F2> <plug>(YCMHover)
-" nmap <leader>D <plug>(YCMHover)
-
-" Neomake Settings
-" When reading a buffer (after 1s), and when writing (no delay).
-" call neomake#configure#automake('rw', 1000)
-" let g:ycm_always_populate_location_list = 1
-"""/PYTHON
-
-"""RUST
-" let g:racer_cmd = "/home/brian/.cargo/bin/racer"
-" let g:racer_experimental_completer = 1
-" let g:racer_insert_paren = 1
-" au FileType rust nmap K <Plug>(rust-doc)
-" au FileType rust nmap <leader>d <Plug>(rust-def-vertical)
-" au FileType rust nmap gt <Plug>(rust-def-tab)
-"""/RUST
-
-" let g:neomake_open_list = 2
-" map <leader>l :lopen<CR>
+""""HTML
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
