@@ -1,23 +1,32 @@
-snippet lint
- # pylint: disable=${1:import-error}
+snippet lint "pylint disable"
+ # pylint: disable=${0:unused-argument}
 endsnippet
 
-snippet cover
-$0 # pragma: no cover
+snippet nocover "pylint no coverage"
+ # pragma: no cover
 endsnippet
 
-snippet test
+snippet class "Python Class Template"
+class ${1:ClassName}:
+	"""${2:Doc String}"""
+
+	def __init__(self):
+		"""${3:`date +%Y-%m-%d`}"""
+	    pass
+endsnippet
+
+snippet test "Unit Test Template"
 def test_${1:func_name}():
-	actual = ${2:func_to_test}
-	expected = ${3:'foo'}
+	actual = ${2:func_under_test}
+    expected = ${3:None}
 	assert actual == expected
 endsnippet
 
-snippet atest
+snippet atest "Asynchronous Unit Test Template"
 @pytest.mark.asyncio
 async def test_${1:func_name}():
-	actual = await ${2:func_to_test}
-	expected = ${3:'foo'}
+	actual = ${2:func_under_test}
+    expected = ${3:None}
 	assert actual == expected
 endsnippet
 
@@ -25,10 +34,38 @@ snippet parametrize
 @pytest.mark.parametrize('${1:param1}, ${2:param2}', ${3:LIST_VAR})
 endsnippet
 
-snippet main
+snippet main "Main block"
 def main():
-	$0
+	$1
 
 if __name__ == '__main__':
-    main()
+	main()
+endsnippet
+
+snippet param "Documentation Parameter"
+:param ${1:name}: ${2:Doc String}
+endsnippet
+
+snippet gitwrite "Git Compress"
+#!/usr/bin/env python3
+
+from hashlib import sha1
+import sys
+import zlib
+
+stdin = sys.stdin.read()
+
+# Build body
+size = str(len(stdin))
+obj_type = '${1:define}'
+body = (f'${2:define}').encode()
+
+# Write to destination
+dst_hash = sha1(body).hexdigest()
+dst = f'.git/objects/{dst_hash[:2]}/{dst_hash[2:]}'
+with open(dst, 'wb') as handle:
+    handle.write(zlib.compress(body))
+
+# Log it
+print(f'Write to {dst}')
 endsnippet

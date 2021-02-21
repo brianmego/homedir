@@ -233,6 +233,7 @@ endfunction
 """PYTHON
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
+autocmd BufWritePre * :%s/\s\+$//e
 
 """"HTML
 "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
