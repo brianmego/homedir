@@ -50,6 +50,7 @@ snippet gitwrite "Git Compress"
 #!/usr/bin/env python3
 
 from hashlib import sha1
+import os
 import sys
 import zlib
 
@@ -62,7 +63,9 @@ body = (f'${2:define}').encode()
 
 # Write to destination
 dst_hash = sha1(body).hexdigest()
-dst = f'.git/objects/{dst_hash[:2]}/{dst_hash[2:]}'
+par_dir = f'.git/objects/{dst_hash[:2]}'
+dst = f'{par_dir}/{dst_hash[2:]}'
+os.makedirs(par_dir, exist_ok=True)
 with open(dst, 'wb') as handle:
     handle.write(zlib.compress(body))
 

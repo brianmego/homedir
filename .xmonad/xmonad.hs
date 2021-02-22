@@ -68,7 +68,7 @@ main = do
     xmonad $ ewmh $ desktopConfig {
         manageHook = manageDocks <+> manageHook desktopConfig <+> (isFullscreen --> doFullFloat) <+> manageScratchPad
         , layoutHook = myLayoutHook
-        , borderWidth        = 2
+        , borderWidth        = 1
         , normalBorderColor  = "#292d3e"
         , focusedBorderColor = "#bbc5ff"
         , handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook
