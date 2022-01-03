@@ -7,7 +7,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers(doFullFloat,isFullscreen)
 import XMonad.Hooks.EwmhDesktops(fullscreenEventHook,ewmh)
 import XMonad.Util.Scratchpad
-import XMonad.Layout.NoBorders
+import XMonad.Layout.NoBorders (noBorders, smartBorders)
 import XMonad.Layout.Spacing
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -16,7 +16,7 @@ import System.IO
 
 myTerminal = "konsole"
 
-myKeys = 
+myKeys =
     -- Misc Hotkeys
     [ ("M-i", spawn "xscreensaver-command -activate")
     , ("M1-<Space>", sendMessage NextLayout)
@@ -55,13 +55,13 @@ manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
 
   where
-    
+
     h = 0.9
     w = 0.9
     t = 0.95 - h
     l = 0.95 - w
 
-myLayoutHook = mouseResize $ spacing 2 $ layoutHook desktopConfig
+myLayoutHook = mouseResize $ spacing 2 $ smartBorders $ layoutHook desktopConfig
 
 main = do
     xmproc <- spawnPipe "xmobar"
