@@ -13,7 +13,7 @@ call plug#begin()
 "
 " Editor
 Plug 'rakr/vim-one'
-Plug 'bling/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -25,7 +25,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
-" Plug 'neomake/neomake'
 Plug 'henrik/vim-indexed-search'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'majutsushi/tagbar'
@@ -35,7 +34,6 @@ Plug 'mileszs/ack.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-notes'
 Plug 'xolox/vim-misc'
-" Plug 'ycm-core/YouCompleteMe'
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -85,10 +83,20 @@ nmap <C-h> <C-w>h
 " set t_8b=[48;2;%lu;%lu;%lum
 " set t_8f=[38;2;%lu;%lu;%lum
 
+"Statusline
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'one' ,
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+\ }
+
 set background=dark
-" let g:airline_theme='quantum'
-" let g:quantum_black = 1
-let g:airline#extensions#coc#enabled = 0
 let g:one_allow_italics = 1
 colorscheme one
 set nobackup
@@ -156,17 +164,20 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-P> :Files<CR>
-nnoremap <C-F> :Rg 
+nnoremap <C-F> :Rg<space>
 let mapleader = " "
 map <leader>j :%!jq . -<CR>
-map <leader>s :Gstatus!<CR>
+map <leader>s :Git<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>t :Start -wait=always pytest -svv %<CR>
+map <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 map <leader>T :TagbarToggle<CR>
 map <leader>p :pta<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
+map <leader>b :Buffers<CR>
+map <leader>a :CocAction<CR>
 " nnoremap <leader>R :YcmCompleter GoToReferences<CR>
 map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>

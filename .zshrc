@@ -90,7 +90,7 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 source $ZSH_CUSTOM/aliases
 source $ZSH_CUSTOM/localrc
-export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
+export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -108,3 +108,13 @@ FD_OPTIONS="--follow --exclude .git --exclude node_modules"
 export FZF_DEFAULT_OPTS="-i --no-mouse --reverse --multi --inline-info --preview='bat --theme=TwoDark --style=numbers --color=always {}' --preview-window='right:hidden:wrap' --bind='f2:toggle-preview'"
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd $FD_OPTIONS"
 export BAT_PAGER="less -R"
+
+disable_gitprompt () {
+    export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}
+%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
+}
+
+enable_gitprompt () {
+    export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
+%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
+}
