@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.config
 ln -svf $PWD/.vimrc ~/
 ln -svf $PWD/.zshrc ~/
 ln -svf $PWD/.zsh ~/
@@ -13,6 +13,7 @@ ln -svf $PWD/.pylintrc ~/
 ln -svf $PWD/.xmonad ~/
 ln -svf $PWD/.xmobarrc ~/
 ln -svf $PWD/.mutt ~/
+ln -svf $PWD/starship.toml ~/.config/starship.toml
 
 touch $PWD/.zsh/localrc
 touch $PWD/.bashrc_local

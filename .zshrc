@@ -1,16 +1,16 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# # Path to your oh-my-zsh installation.
+# export ZSH=$HOME/.oh-my-zsh
 # if [ -e /lib/terminfo/x/xterm-256color ]; then
 #     export TERM='xterm-256color'
 # else
 #     export TERM='xterm-color'
 # fi
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+# # Set name of the theme to load.
+# # Look in ~/.oh-my-zsh/themes/
+# # Optionally, if you set this to "random", it'll load a random theme each
+# # time that oh-my-zsh is loaded.
+# ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -90,8 +90,8 @@ export EDITOR='vim'
 # For a full list of active aliases, run `alias`.
 source $ZSH_CUSTOM/aliases
 source $ZSH_CUSTOM/localrc
-export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}
-%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
+# export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}
+# %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -118,3 +118,9 @@ enable_gitprompt () {
     export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+eval "$(starship init zsh)"

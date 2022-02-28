@@ -1,0 +1,43 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+format = """$all $directory
+$character"""
+# format = """
+# $directory $time $rust$package(bold green)
+# -> %"""
+
+# # Replace the "❯" symbol in the prompt with "➜"
+# [character]                            # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+format = '[\[$path\]]($style)'
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style)'
+style = 'bold blue'
+
+[git_status]
+disabled = true
+
+[git_branch]
+disabled = true
+
+[git_commit]
+disabled = true
+
+[git_state]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[python]
+disabled = true
