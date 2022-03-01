@@ -26,7 +26,7 @@ myKeys =
     -- , ("M1-1", spawn "vivaldi")
 
     --Toggles
-    , ("M-<F7>", spawn "notify-send DUNST_COMMAND_TOGGLE")
+    , ("M-<F7>", spawn "dunstctl set-paused toggle")
     , ("M-<F8>", spawn "toggle_vpn")
     , ("M-<F10>", spawn "toggle_xscreensaver")
     , ("M-<F11>", spawn "toggle_compositor")
@@ -61,7 +61,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
     t = 0.95 - h
     l = 0.95 - w
 
-myLayoutHook = mouseResize $ spacing 2 $ smartBorders $ layoutHook desktopConfig
+myLayoutHook = mouseResize $ smartBorders ( layoutHook desktopConfig )
 
 main = do
     xmproc <- spawnPipe "xmobar"

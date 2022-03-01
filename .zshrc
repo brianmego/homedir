@@ -1,5 +1,5 @@
 # # Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 # if [ -e /lib/terminfo/x/xterm-256color ]; then
 #     export TERM='xterm-256color'
 # else
@@ -50,15 +50,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$HOME/.zsh/
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-#plugins=(git)
-
 # User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 export PATH=/usr/local/bin:~/.local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
@@ -68,37 +60,14 @@ elif [ "$(uname)" '==' "Linux" ]; then
     . /usr/share/autojump/autojump.zsh
 fi
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-source $ZSH_CUSTOM/aliases
-source $ZSH_CUSTOM/localrc
-# export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}
-# %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/share/zsh/vendor-completions $fpath)
 autoload -Uz compinit && compinit -i
+
+source $ZSH_CUSTOM/aliases
+source $ZSH_CUSTOM/localrc
 
 setopt extendedglob
 
@@ -118,9 +87,5 @@ enable_gitprompt () {
     export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%} $(git_prompt_info)
 %{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} '
 }
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 eval "$(starship init zsh)"

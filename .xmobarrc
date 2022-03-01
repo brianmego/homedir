@@ -1,4 +1,4 @@
-Config { 
+Config {
          position = TopP 0 0
        , font = "xft:Bitstream Vera Sans Mono:size=12:bold:antialias=true"
        , bgColor = "#31363b"
@@ -18,7 +18,7 @@ Config {
                                      , "--High"     , "50000"       -- units: B/s
                                      , "--low"      , "green"
                                      , "--normal"   , "green"
-                                     , "--high"     , "red" 
+                                     , "--high"     , "red"
                                      , "--minwidth" , "4"
                                      ] 10
                     , Run Date "%a %b %_d %H:%M:%S" "date" 10
