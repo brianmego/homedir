@@ -13,6 +13,7 @@ call plug#begin()
 "
 " Editor
 Plug 'rakr/vim-one'
+Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'blueshirts/darcula'
@@ -46,7 +47,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-rls',
+    \ 'coc-rust-analyzer',
     \ 'coc-go'
 \ ]
 
@@ -65,7 +66,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 " Syntax
-Plug 'sheerun/vim-polyglot'
 Plug 'fatih/vim-hclfmt'
 Plug 'lepture/vim-jinja'
 
@@ -247,6 +247,9 @@ endfunction
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
 autocmd BufWritePre * :%s/\s\+$//e
+
+"""Go
+autocmd FileType go setlocal noexpandtab
 
 """"HTML
 "autocmd FileType html set omnifunc=htmlcomplete#CompleteTags

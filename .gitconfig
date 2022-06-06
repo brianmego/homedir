@@ -17,5 +17,6 @@
 [core]
     autocrlf = input
     pager = less -F -X
+    excludesfile = ~/.gitignore
 [advice]
 	detachedHead = false
