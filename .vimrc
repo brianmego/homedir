@@ -43,7 +43,7 @@ let g:coc_global_extensions = [
     \ 'coc-erlang_ls',
     \ 'coc-tsserver',
     \ 'coc-snippets',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-json',
     \ 'coc-html',
     \ 'coc-css',
@@ -172,16 +172,14 @@ map <leader>j :%!jq . -<CR>
 map <leader>s :Git<CR>
 map <leader>w :w<CR>
 map <leader>q :q<CR>
-map <leader>t :Start -wait=always pytest -svv %<CR>
-map <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 map <leader>T :TagbarToggle<CR>
-map <leader>p :pta<CR>
+"copy current path to clipboard
+map <leader>p :let @*=@%<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>b :Buffers<CR>
 map <leader>a :CocAction<CR>
 " nnoremap <leader>R :YcmCompleter GoToReferences<CR>
-map <leader>f :Dispatch! yapf % -i<CR>
 map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
@@ -223,6 +221,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " Symbol renaming.
 nmap <leader>r <Plug>(coc-rename)
+nmap <leader>f <Plug>(coc-format)
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -243,10 +242,15 @@ function! s:show_documentation()
   endif
 endfunction
 
-"""PYTHON
+"""Rust
+autocmd FileType rust nnoremap <leader>t :Start -wait=always cargo test<CR>
+
+"""Python
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd FileType python nnoremap <leader>t :Start -wait=always pytest -svv %<CR>
+autocmd FileType python nnoremap <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 
 """Go
 autocmd FileType go setlocal noexpandtab
