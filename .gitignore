@@ -9,6 +9,7 @@ QA.pem
 sandbox
 .zsh/localrc
 .bashrc_local
+.zsh/completion
 
 #Vim
 .vim/bundle

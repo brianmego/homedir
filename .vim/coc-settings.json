@@ -12,5 +12,6 @@
             }
         }
     },
-    "erlang_ls.trace.server": "off"
+    "erlang_ls.trace.server": "off",
+    "rust-analyzer.inlayHints.enable": false
 }

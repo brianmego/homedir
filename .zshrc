@@ -54,16 +54,11 @@ ZSH_CUSTOM=$HOME/.zsh/
 
 export PATH=/usr/local/bin:~/.local/bin:$PATH
 source $ZSH/oh-my-zsh.sh
-if [ "$(uname)" '==' "Darwin" ]; then
-    [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
-elif [ "$(uname)" '==' "Linux" ]; then
-    . /usr/share/autojump/autojump.zsh
-fi
-
 export EDITOR='vim'
 
 fpath=(~/.zsh/completion $fpath)
 fpath=(/usr/share/zsh/vendor-completions $fpath)
+fpath=(/usr/share/zsh/site-functions $fpath)
 autoload -Uz compinit && compinit -i
 
 source $ZSH_CUSTOM/aliases

@@ -178,8 +178,7 @@ map <leader>p :let @*=@%<CR>
 map <leader>i obreakpoint()<esc>
 map <leader>e :Vexplore<CR>
 map <leader>b :Buffers<CR>
-map <leader>a :CocAction<CR>
-" nnoremap <leader>R :YcmCompleter GoToReferences<CR>
+map <leader>a <Plug>(coc-codeaction-selected)<CR>
 map <leader>h :Hexplore<CR>
 map <leader>x :%!xmllint --format -<CR>
 map <leader>, f,a<CR><esc>
