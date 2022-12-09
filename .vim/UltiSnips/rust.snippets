@@ -1,0 +1,17 @@
+snippet tests "Test Module"
+#[cfg(test)]
+mod tests {
+	use super::*;
+
+	${1}
+}
+endsnippet
+
+snippet test "Unit Test Template"
+#[test]
+fn test_${1:func_name}() {
+	let actual = ${2:func_under_test};
+    let expected = ${3:None};
+	assert_eq!(actual, expected);
+}
+endsnippet

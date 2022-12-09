@@ -23,7 +23,6 @@ def test_${1:func_name}():
 endsnippet
 
 snippet atest "Asynchronous Unit Test Template"
-@pytest.mark.asyncio
 async def test_${1:func_name}():
 	actual = ${2:func_under_test}
     expected = ${3:None}
