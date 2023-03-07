@@ -14,3 +14,4 @@ alias demo="export PS1='%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} ' &
 alias pirr="pip install -r requirements.txt"
 alias docker_clean='docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)'
 alias cat='bat -pp'
+alias ze='zellij'

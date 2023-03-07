@@ -14,6 +14,7 @@ ln -svf $PWD/.xmonad ~/
 ln -svf $PWD/.xmobarrc ~/
 ln -svf $PWD/.mutt ~/
 ln -svf $PWD/starship.toml ~/.config/starship.toml
+ln -svf $PWD/zellij ~/.config/zellij
 
 touch $PWD/.zsh/localrc
 touch $PWD/.bashrc_local
