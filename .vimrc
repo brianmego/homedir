@@ -13,6 +13,7 @@ call plug#begin()
 "
 " Editor
 Plug 'rakr/vim-one'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
@@ -174,16 +175,16 @@ map <leader>w :w<CR>
 map <leader>q :q<CR>
 map <leader>T :TagbarToggle<CR>
 "copy current path to clipboard
-map <leader>p :let @*=@%<CR>
-map <leader>i obreakpoint()<esc>
-map <leader>e :Vexplore<CR>
-map <leader>b :Buffers<CR>
-map <leader>a <Plug>(coc-codeaction-selected)<CR>
-map <leader>h :Hexplore<CR>
-map <leader>x :%!xmllint --format -<CR>
-map <leader>, f,a<CR><esc>
-map <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*,*.beam,target
+nmap <leader>p :let @*=@%<CR>
+nmap <leader>i obreakpoint()<esc>
+nmap <leader>e :Vexplore<CR>
+nmap <leader>b :Buffers<CR>
+nmap <silent> <leader>a <Plug>(coc-codeaction-selected)<CR>
+nmap <leader>h :CocCommand document.toggleInlayHint<CR>
+nmap <leader>x :%!xmllint --format -<CR>
+nmap <leader>, f,a<CR><esc>
+nmap <leader>. t.a<CR><esc>l
+set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*,*.beam,*/target/*
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
@@ -201,7 +202,7 @@ set shortmess+=c
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use <c-space> to trigger completion.
@@ -247,7 +248,7 @@ autocmd FileType rust nnoremap <leader>t :Start -wait=always cargo test<CR>
 """Python
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
-autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd FileType python nnoremap <leader>t :Start -wait=always pytest -svv %<CR>
 autocmd FileType python nnoremap <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 

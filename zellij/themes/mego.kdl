@@ -1,7 +1,7 @@
 themes {
-    kanagawa {
+    mego {
         fg "#7c818c"
-        bg "#1F1F28"
+        bg "#3838b5"
         red "#C34043"
         green "#76946A"
         yellow "#FF9E3B"
@@ -13,3 +13,4 @@ themes {
         white "#DCD7BA"
     }
 }
+

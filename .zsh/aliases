@@ -4,6 +4,7 @@ alias gs='git status'
 alias gl='git log'
 alias gd='git diff'
 alias c='clear'
+alias j='z'
 alias ls='exa'
 alias grep='rg'
 alias kevin='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
@@ -15,3 +16,6 @@ alias pirr="pip install -r requirements.txt"
 alias docker_clean='docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)'
 alias cat='bat -pp'
 alias ze='zellij'
+if [[ `uname` == 'Darwin' ]] then
+    alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+fi
