@@ -9,7 +9,7 @@ alias ls='exa'
 alias grep='rg'
 alias kevin='git log --graph --abbrev-commit --decorate --all --format=format:"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)"'
 alias weather="curl wttr.in/78613"
-alias activate='source `find . -name activate`'
+alias activate='source `fd activate -IH -g -t f`'
 alias col="column -ts $'\t'"
 alias demo="export PS1='%{$fg[blue]%}->%{$fg_bold[blue]%} %#%{$reset_color%} ' && clear"
 alias pirr="pip install -r requirements.txt"
