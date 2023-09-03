@@ -16,6 +16,7 @@ alias pirr="pip install -r requirements.txt"
 alias docker_clean='docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)'
 alias cat='bat -pp'
 alias ze='zellij'
+alias vim='nvim'
 if [[ `uname` == 'Darwin' ]] then
     alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 fi

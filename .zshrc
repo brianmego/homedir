@@ -69,7 +69,7 @@ setopt extendedglob
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 FD_OPTIONS="--follow --exclude .git --exclude node_modules"
-export FZF_DEFAULT_OPTS="-i --no-mouse --reverse --multi --inline-info --preview='bat --theme=TwoDark --style=numbers --color=always {}' --preview-window='right:hidden:wrap' --bind='f2:toggle-preview'"
+export FZF_DEFAULT_OPTS="-i --no-mouse --reverse --multi --inline-info --preview='bat --theme=TwoDark --style=numbers --color=always {}' --preview-window='right:hidden:wrap' --bind='f2:toggle-preview' --bind='ctrl-a:select-all'"
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd $FD_OPTIONS"
 export BAT_PAGER="less -R"
 export RUSTC_WRAPPER=sccache
@@ -86,3 +86,9 @@ enable_gitprompt () {
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+source /Users/bmego/.antilles/antilles_completion.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /Users/bmego/.antilles/sdk_env_vars.sh

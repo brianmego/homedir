@@ -22,6 +22,9 @@
 [advice]
 	detachedHead = false
 
+[pager]
+    branch = false
+
 [interactive]
     diffFilter = delta --color-only --features=interactive
 

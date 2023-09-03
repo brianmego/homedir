@@ -11,32 +11,41 @@ call plug#begin()
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 "
-" Editor
+" Colorschemes
 Plug 'rakr/vim-one'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
 Plug 'blueshirts/darcula'
 Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
+
+" Editor Decorations
+Plug 'ap/vim-css-color'  " Adds colors to hexcodes
+Plug 'itchyny/lightline.vim' " Statusline config
+
+" Editing help
+Plug 'ntpeters/vim-better-whitespace' " Visualize trailing whitespace
+Plug 'tpope/vim-unimpaired' " Complementary mapping hotkeys
+Plug 'tpope/vim-surround' " surround text objects with like symbols
+Plug 'tpope/vim-commentary' " comment blocks of code intelligently
+Plug 'tpope/vim-repeat' " Use . key on things like commentary and surround
+Plug 'Yggdroot/indentLine' " Visualize indentation level
+Plug 'tpope/vim-speeddating' " Improve C-A and C-X for dates
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " Quick Code Search with Rg (install)
+Plug 'junegunn/fzf.vim' " Quick Code Search
+Plug 'SirVer/ultisnips' " Code Snippets
+
+" File viewing
+Plug 'nvim-neo-tree/neo-tree.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim'
+
+" Not yet sorted
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-dispatch'
 Plug 'henrik/vim-indexed-search'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'majutsushi/tagbar'
-Plug 'SirVer/ultisnips'
-Plug 'Yggdroot/indentLine'
-Plug 'mileszs/ack.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'xolox/vim-notes'
-Plug 'xolox/vim-misc'
+
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -56,15 +65,11 @@ let g:coc_global_extensions = [
 Plug 'tpope/vim-fugitive'
 
 " Python
-" Plug 'davidhalter/jedi-vim'
-Plug 'Vimjas/vim-python-pep8-indent'
-
-" Rust
-" Plug 'rust-lang/rust'
+" Plug 'Vimjas/vim-python-pep8-indent'
 
 " Javascript
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'pangloss/vim-javascript'
+" Plug 'othree/javascript-libraries-syntax.vim'
 
 " Syntax
 Plug 'fatih/vim-hclfmt'
@@ -91,7 +96,7 @@ set noshowmode
 let g:lightline = {
     \ 'colorscheme': 'one' ,
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
+    \   'left': [ [ 'mode' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
     \ },
     \ 'component_function': {
@@ -101,7 +106,7 @@ let g:lightline = {
 
 set background=dark
 let g:one_allow_italics = 1
-colorscheme one
+colorscheme quantum
 set nobackup
 set nowritebackup
 set hidden
@@ -157,8 +162,10 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-let g:netrw_liststyle=3
-let g:netrw_list_hide= '.*\.pyc$'
+" let g:netrw_liststyle=3
+" let g:netrw_list_hide= '.*\.pyc$'
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 nnoremap H ^
 nnoremap L $
 inoremap jk <esc>
@@ -184,7 +191,8 @@ nmap <leader>h :CocCommand document.toggleInlayHint<CR>
 nmap <leader>x :%!xmllint --format -<CR>
 nmap <leader>, f,a<CR><esc>
 nmap <leader>. t.a<CR><esc>l
-set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*,*.beam,*/target/*
+nmap - :Neotree reveal<CR>
+" set wildignore+=*/tmp/*,*.pyc,htmlcov,*.swp,*.zip,cover,dists,dist,node_modules,bower_components,tmp,*/build/lib/*,logrotate.d,__pycache__/,.idea/,.git/,.*,*.beam,*/target/*
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
@@ -192,8 +200,6 @@ let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:ycm_key_list_select_completion=[]
 let g:indentLine_enabled = 0
 map <leader>> :IndentLinesToggle<CR>
-" Set Vim.ack to use ag instead of ack
-let g:ackprg = 'ag --vimgrep'
 
 """COMPLETION
 
@@ -242,13 +248,14 @@ function! s:show_documentation()
   endif
 endfunction
 
+
 """Rust
 autocmd FileType rust nnoremap <leader>t :Start -wait=always cargo test<CR>
 
 """Python
 autocmd FileType python setlocal colorcolumn=80
 autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
-autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.py,*.rs :%s/\s\+$//e
 autocmd FileType python nnoremap <leader>t :Start -wait=always pytest -svv %<CR>
 autocmd FileType python nnoremap <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 
@@ -270,6 +277,18 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Add search to quickfix list
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+    \ 'ctrl-q': function('s:build_quickfix_list'),
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
 
 au FocusGained,BufEnter * :silent! !
 set autoread
@@ -278,3 +297,11 @@ nnoremap <Up>     :resize +2<Cr>
 nnoremap <Down>   :resize -2<Cr>
 nnoremap <Left>   :vertical resize -2<Cr>
 nnoremap <Right>  :vertical resize +2<Cr>
+
+" Enable
+set listchars=tab:→\ ,space:·,nbsp:␣,eol:¶
+
+" Nvim specific mappings
+if has('nvim')
+    :silent! unmap Y
+endif

@@ -13,3 +13,4 @@ source ~/.bashrc_local
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /Users/bmego/.antilles/antilles_completion.bash
+. "$HOME/.cargo/env"
