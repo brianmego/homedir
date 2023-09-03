@@ -1,7 +1,7 @@
-source "gpg -d ~/.mutt/gmail_passwords.gpg |"
-
 set imap_user = 'brianmego@gmail.com'
+set imap_pass="`gpg --batch -q --decrypt ~/.mutt/gmail_password.gpg`"
 set smtp_url = 'smtps://brianmego@smtp.gmail.com:465/'
+set smtp_pass="`gpg --batch -q --decrypt ~/.mutt/gmail_password.gpg`"
 set from='brianmego@gmail.com'
 set realname='Brian Mego'
 set smtp_authenticators = 'gssapi:login'
