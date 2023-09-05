@@ -31,3 +31,6 @@ sandbox
 
 #xmonad
 .xmonad
+
+#Nvim
+nvim/lazy-lock.json

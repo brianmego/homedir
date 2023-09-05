@@ -86,9 +86,9 @@ enable_gitprompt () {
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-source /Users/bmego/.antilles/antilles_completion.zsh
+source $HOME/.antilles/antilles_completion.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /Users/bmego/.antilles/sdk_env_vars.sh
+source $HOME/.antilles/sdk_env_vars.sh
