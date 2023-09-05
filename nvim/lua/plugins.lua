@@ -39,5 +39,8 @@ return {
     'lepture/vim-jinja',
 
     -- Completion
-    { 'neoclide/coc.nvim',           branch = 'release' }
+    { 'neoclide/coc.nvim',           branch = 'release' },
+
+    -- Git
+    'tpope/vim-fugitive',
 }

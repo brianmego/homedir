@@ -108,6 +108,13 @@ keybinds clear-defaults=true {
     session {
         bind "F5" { SwitchToMode "Normal"; }
         bind "d" { Detach; }
+        bind "w" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
     tmux {
         bind "[" { SwitchToMode "Scroll"; }
@@ -129,6 +136,13 @@ keybinds clear-defaults=true {
         bind "k" { MoveFocus "Up"; SwitchToMode "Normal"; }
         bind "o" { FocusNextPane; }
         bind "d" { Detach; }
+        bind "s" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
     shared_except "locked" {
         bind "Ctrl u" { SwitchToMode "Locked"; }
