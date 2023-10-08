@@ -5,7 +5,6 @@ vim.o.shiftwidth=4
 vim.o.modelines=1
 vim.o.foldnestmax=10
 vim.o.backspace="indent,eol,start"
-vim.o.foldmethod="indent"
 vim.o.sessionoptions="buffers,curdir,folds,help,tabpages,winsize,terminal"  -- Do not save blank windows when saving sessions
 
 -- vim.o.ttyfast            -- faster redraw
@@ -20,6 +19,7 @@ vim.cmd "set splitright"
 vim.cmd "set splitbelow"
 vim.cmd "set nofoldenable"
 vim.cmd "set autoindent"
+vim.cmd "set cindent"
 vim.cmd "set number"             -- show line numbers
 vim.cmd "set relativenumber"     -- show relative numbering from cursor (+1, +2, -1, -2)
 vim.cmd "set showcmd"            -- show command in bottom bar
@@ -30,7 +30,15 @@ vim.cmd "set ignorecase"          -- ignore case when searching
 vim.cmd "set incsearch"           -- search as characters are entered
 vim.cmd "set hlsearch"            -- highlight all matches
 vim.cmd "set nowrap"
+vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+vim.cmd "set nofoldenable"        -- Disable folding at startup.
 
 vim.cmd 'colorscheme quantum'
 
 vim.o.listchars="tab:→ ,space:·,nbsp:␣,eol:¶"
+
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    callback = function()
+        vim.cmd "set foldmethod=expr"
+    end
+})

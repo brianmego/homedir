@@ -1,6 +1,9 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
   "python.formatting.provider": "black",
+  "python.formatting.blackArgs": ["--skip-string-normalization"],
   "python.linting.ruffEnabled": true,
-  "rust-analyzer.check.command": "clippy"
+  "python.linting.ruffArgs": ["--line-length=150"],
+  "rust-analyzer.check.command": "clippy",
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

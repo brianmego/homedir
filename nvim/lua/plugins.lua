@@ -11,7 +11,13 @@ return {
     'itchyny/lightline.vim', -- Statusline config
 
     -- Editing help
+    {
     'ntpeters/vim-better-whitespace', -- Visualize trailing whitespace
+
+        config = function()
+            require("better-whitespace").setup()
+        end,
+    },
     'tpope/vim-unimpaired',           -- Complementary mapping hotkeys
     'tpope/vim-surround',             -- surround text objects with like symbols
     'tpope/vim-commentary',           -- comment blocks of code intelligently
@@ -23,10 +29,48 @@ return {
     'SirVer/ultisnips',               -- Code Snippets
 
     -- File Viewing
-    { 'nvim-neo-tree/neo-tree.nvim', opts = { filesystem = { window = { position = "current" } } } },
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-    'MunifTanjim/nui.nvim',
+    {
+        'nvim-neo-tree/neo-tree.nvim', -- Filesystem viewer
+        opts = {
+            filesystem = {
+                window = {
+                    position = "current"
+                }
+            }
+        },
+        dependencies = {
+            'nvim-lua/plenary.nvim',       -- Common utility functions for extensions
+            'nvim-tree/nvim-web-devicons', -- Icon support in the editor
+            'MunifTanjim/nui.nvim',        -- Popups and other screen drawing items
+        },
+    },
+    {
+        "nvim-treesitter/nvim-treesitter", -- Syntax highlighting/folding/indentation
+        build = ":TSUpdate",
+        config = function()
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = { "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc" },
+                sync_install = false,
+                highlight = { enable = true },
+                indent = { enable = true },
+            })
+        end
+    },
+
+    -- Database
+    {
+        "tpope/vim-dadbod",
+        dependencies = {
+            "kristijanhusak/vim-dadbod-ui",
+            "kristijanhusak/vim-dadbod-completion",
+        },
+        config = function()
+            require("dadbod").setup()
+        end,
+        cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
+    },
 
     -- Not yet sorted
     'tpope/vim-eunuch',
@@ -35,11 +79,10 @@ return {
     'jiangmiao/auto-pairs',
 
     -- Syntax
-    'fatih/vim-hclfmt',
     'lepture/vim-jinja',
 
     -- Completion
-    { 'neoclide/coc.nvim',           branch = 'release' },
+    { 'neoclide/coc.nvim', branch = 'release' },
 
     -- Git
     'tpope/vim-fugitive',
