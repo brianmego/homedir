@@ -41,7 +41,7 @@ vim.cmd([[
       cc
     endfunction
 
-    let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+    "let g:UltiSnipsSnippetsDir = "UltiSnips"
 
     let g:fzf_action = {
         \ 'ctrl-q': function('s:build_quickfix_list'),

@@ -24,8 +24,6 @@ return {
     'tpope/vim-repeat',               -- Use . key on things like commentary and surround
     'Yggdroot/indentLine',            -- Visualize indentation level
     'tpope/vim-speeddating',          -- Improve C-A and C-X for dates
-    'junegunn/fzf',                   -- Quick Code Search with Rg (install)
-    'junegunn/fzf.vim',               -- Quick Code Search
     'SirVer/ultisnips',               -- Code Snippets
 
     -- File Viewing
@@ -70,6 +68,11 @@ return {
             require("dadbod").setup()
         end,
         cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.3',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
     -- Not yet sorted

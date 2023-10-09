@@ -3,7 +3,6 @@ vim.o.tabstop=4
 vim.o.softtabstop=4
 vim.o.shiftwidth=4
 vim.o.modelines=1
-vim.o.foldnestmax=10
 vim.o.backspace="indent,eol,start"
 vim.o.sessionoptions="buffers,curdir,folds,help,tabpages,winsize,terminal"  -- Do not save blank windows when saving sessions
 
@@ -13,11 +12,11 @@ vim.cmd "set nowritebackup"
 vim.cmd "set hidden"
 vim.cmd "set lazyredraw"
 vim.cmd "set smarttab"
+vim.cmd "set cindent"
 vim.cmd "set expandtab"          -- use spaces for tabs
 vim.cmd "set visualbell"
 vim.cmd "set splitright"
 vim.cmd "set splitbelow"
-vim.cmd "set nofoldenable"
 vim.cmd "set autoindent"
 vim.cmd "set cindent"
 vim.cmd "set number"             -- show line numbers
