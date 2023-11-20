@@ -41,14 +41,6 @@ vim.cmd([[
       cc
     endfunction
 
-    "let g:UltiSnipsSnippetsDir = "UltiSnips"
-
-    let g:fzf_action = {
-        \ 'ctrl-q': function('s:build_quickfix_list'),
-        \ 'ctrl-t': 'tab split',
-        \ 'ctrl-x': 'split',
-        \ 'ctrl-v': 'vsplit' }
-
     " Search for selected text, forwards or backwards.
     vnoremap <silent> * :<C-U>
       \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>

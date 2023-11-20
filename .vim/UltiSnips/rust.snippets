@@ -21,3 +21,16 @@ fn main() {
 	${1}
 }
 endsnippet
+
+snippet derive "Add derive"
+#[derive(${1})]
+endsnippet
+
+snippet implerror "Implement Error"
+impl std::error::Error for ${1:StructName} {}
+impl std::fmt::Display for ${1:StructName} {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("${2:ErrorMsg}")
+    }
+}
+endsnippet

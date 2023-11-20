@@ -49,7 +49,7 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = { "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc" },
+                ensure_installed = { "bash", "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc", "sql" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },

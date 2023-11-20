@@ -3,7 +3,7 @@
   "python.formatting.provider": "black",
   "python.formatting.blackArgs": ["--skip-string-normalization"],
   "python.linting.ruffEnabled": true,
-  "python.linting.ruffArgs": ["--line-length=150"],
+  "python.linting.ruffArgs": ["--line-length=150", "--preview"],
   "rust-analyzer.check.command": "clippy",
   "coc.preferences.extensionUpdateCheck": "daily"
 }
