@@ -25,6 +25,7 @@ return {
     'Yggdroot/indentLine',            -- Visualize indentation level
     'tpope/vim-speeddating',          -- Improve C-A and C-X for dates
     'SirVer/ultisnips',               -- Code Snippets
+    "preservim/tagbar",               -- Classes/functions/enums in sidebar
 
     -- File Viewing
     {
