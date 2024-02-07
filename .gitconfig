@@ -10,8 +10,8 @@
     wip = !git add -u && git commit -m "WIP" --no-verify
     undo = reset HEAD~1 --mixed
     amend = commit -a --amend
-    bclean = "!f() { git branch --merged ${1-master} | grep -v " master$" | grep -v " develop$" | grep -v " ${1-master}$" | xargs git branch -d; }; f"
-    bcleanremote = "!f() { git branch -r --merged ${1-origin/master} | grep -v " origin/master$" | grep -v " origin/develop$" | grep -v " ${1-origin/master}$"; }; f"
+    bclean = "!f() { git branch --merged ${1-master} | grep -v " master$" | grep -v " develop$" | grep -v " main$" | grep -v " ${1-master}$" | xargs git branch -d; }; f"
+    bcleanremote = "!f() { git branch -r --merged ${1-origin/master} | grep -v " origin/master$" | grep -v " origin/develop$" | grep -v " main$" | grep -v " ${1-origin/master}$"; }; f"
     spull = submodule foreach git pull
 [push]
     default = simple

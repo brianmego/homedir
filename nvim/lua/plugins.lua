@@ -7,25 +7,29 @@ return {
     'altercation/vim-colors-solarized',
 
     -- editor decorations
-    'ap/vim-css-color',      -- Adds colors to hexcodes
-    'itchyny/lightline.vim', -- Statusline config
-
+    'ap/vim-css-color',          -- Adds colors to hexcodes
+    {
+        'itchyny/lightline.vim', -- Statusline config
+        config = function()
+            require("lightline").setup()
+        end,
+    },
     -- Editing help
     {
-    'ntpeters/vim-better-whitespace', -- Visualize trailing whitespace
+        'ntpeters/vim-better-whitespace', -- Visualize trailing whitespace
 
         config = function()
             require("better-whitespace").setup()
         end,
     },
-    'tpope/vim-unimpaired',           -- Complementary mapping hotkeys
-    'tpope/vim-surround',             -- surround text objects with like symbols
-    'tpope/vim-commentary',           -- comment blocks of code intelligently
-    'tpope/vim-repeat',               -- Use . key on things like commentary and surround
-    'Yggdroot/indentLine',            -- Visualize indentation level
-    'tpope/vim-speeddating',          -- Improve C-A and C-X for dates
-    'SirVer/ultisnips',               -- Code Snippets
-    "preservim/tagbar",               -- Classes/functions/enums in sidebar
+    'tpope/vim-unimpaired',  -- Complementary mapping hotkeys
+    'tpope/vim-surround',    -- surround text objects with like symbols
+    'tpope/vim-commentary',  -- comment blocks of code intelligently
+    'tpope/vim-repeat',      -- Use . key on things like commentary and surround
+    'Yggdroot/indentLine',   -- Visualize indentation level
+    'tpope/vim-speeddating', -- Improve C-A and C-X for dates
+    'SirVer/ultisnips',      -- Code Snippets
+    "preservim/tagbar",      -- Classes/functions/enums in sidebar
 
     -- File Viewing
     {
@@ -50,7 +54,7 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = { "bash", "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc", "sql" },
+                ensure_installed = { "bash", "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc", "sql", "regex" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },

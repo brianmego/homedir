@@ -77,17 +77,6 @@ vim.cmd([[
     """Go
     autocmd FileType go setlocal noexpandtab
 
-    let g:lightline = {
-        \ 'colorscheme': 'one' ,
-        \ 'active': {
-        \   'left': [ [ 'mode' ],
-        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-        \ },
-        \ 'component_function': {
-        \   'gitbranch': 'FugitiveHead'
-        \ },
-    \ }
-
     " Make <CR> auto-select the first completion item and notify coc.nvim to
     " format on enter, <cr> could be remapped by other vim plugin
     inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()
