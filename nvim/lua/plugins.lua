@@ -61,7 +61,12 @@ return {
             })
         end
     },
-
+    {
+        'stevearc/oil.nvim',
+        config = function()
+            require("oil_overrides")
+        end
+    },
     -- Database
     {
         "tpope/vim-dadbod",
