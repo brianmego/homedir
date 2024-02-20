@@ -33,21 +33,6 @@ return {
 
     -- File Viewing
     {
-        'nvim-neo-tree/neo-tree.nvim', -- Filesystem viewer
-        opts = {
-            filesystem = {
-                window = {
-                    position = "current"
-                }
-            }
-        },
-        dependencies = {
-            'nvim-lua/plenary.nvim',       -- Common utility functions for extensions
-            'nvim-tree/nvim-web-devicons', -- Icon support in the editor
-            'MunifTanjim/nui.nvim',        -- Popups and other screen drawing items
-        },
-    },
-    {
         "nvim-treesitter/nvim-treesitter", -- Syntax highlighting/folding/indentation
         build = ":TSUpdate",
         config = function()
