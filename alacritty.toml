@@ -1,3 +1,6 @@
+[shell]
+program = "zsh"
+
 [window.padding]
 x = 10
 y = 1
@@ -13,6 +16,10 @@ family = "LiterationMono Nerd Font"
 [colors.primary]
 background = '#282c34'
 foreground = '#abb2bf'
+
+[[keyboard.bindings]]
+key = "NumpadEnter"
+chars = "\r"
 
 # Normal colors
 [colors.normal]

@@ -71,7 +71,7 @@ vim.cmd([[
     """Python
     autocmd FileType python setlocal colorcolumn=80
     autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
-    autocmd BufWritePre *.py,*.rs,*lua :%s/\s\+$//e
+    autocmd BufWritePre *.py,*.rs,*lua,*rst :%s/\s\+$//e
     autocmd FileType python nnoremap <leader>t :Start -wait=always pytest -svv %<CR>
     autocmd FileType python nnoremap <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 

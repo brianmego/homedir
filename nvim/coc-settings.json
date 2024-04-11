@@ -1,7 +1,8 @@
 {
   "snippets.ultisnips.pythonPrompt": false,
-  "python.formatting.provider": "black",
-  "python.formatting.blackArgs": ["--skip-string-normalization"],
+  "python.formatting.provider": "ruff",
+  "python.formatting.ruffArgs": ["--preview", "--config", "format.quote-style='preserve'"],
+  "pyright.organizeimports.provider": "ruff",
   "python.linting.ruffEnabled": true,
   "python.linting.ruffArgs": ["--line-length=150", "--preview"],
   "rust-analyzer.check.command": "clippy",
