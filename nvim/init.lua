@@ -19,19 +19,20 @@ require("lazy").setup("plugins")
 -- Default editor settings
 require('brianmego.editor_settings')
 
+require('brianmego.language_servers')
 -- Completion
-vim.g.coc_global_extensions={
-    'coc-erlang_ls',
-    'coc-tsserver',
-    'coc-snippets',
-    'coc-pyright',
-    'coc-json',
-    'coc-html',
-    'coc-css',
-    'coc-rust-analyzer',
-    'coc-go',
-    'coc-lua',
-}
+-- vim.g.coc_global_extensions={
+--     'coc-erlang_ls',
+--     'coc-tsserver',
+--     'coc-snippets',
+--     'coc-pyright',
+--     'coc-json',
+--     'coc-html',
+--     'coc-css',
+--     'coc-rust-analyzer',
+--     'coc-go',
+--     'coc-lua',
+-- }
 
 vim.cmd([[
     " Add search to quickfix list
@@ -54,14 +55,14 @@ vim.cmd([[
       \gV:call setreg('"', old_reg, old_regtype)<CR>
 
     " Use K to show documentation in preview window.
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
-    function! s:show_documentation()
-      if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-      else
-        call CocAction('doHover')
-      endif
-    endfunction
+"    nnoremap <silent> K :call <SID>show_documentation()<CR>
+"    function! s:show_documentation()
+"      if (index(['vim','help'], &filetype) >= 0)
+"        execute 'h '.expand('<cword>')
+"      else
+"        call CocAction('doHover')
+"      endif
+"    endfunction
 
 
     """Rust
@@ -79,8 +80,8 @@ vim.cmd([[
 
     " Make <CR> auto-select the first completion item and notify coc.nvim to
     " format on enter, <cr> could be remapped by other vim plugin
-    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()
-                                  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()
+"                                  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 ]])
 

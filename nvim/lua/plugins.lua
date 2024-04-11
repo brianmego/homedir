@@ -28,7 +28,8 @@ return {
     'tpope/vim-repeat',      -- Use . key on things like commentary and surround
     'Yggdroot/indentLine',   -- Visualize indentation level
     'tpope/vim-speeddating', -- Improve C-A and C-X for dates
-    'SirVer/ultisnips',      -- Code Snippets
+    --'SirVer/ultisnips',      -- Code Snippets
+
     "preservim/tagbar",      -- Classes/functions/enums in sidebar
 
     -- File Viewing
@@ -80,7 +81,14 @@ return {
     'lepture/vim-jinja',
 
     -- Completion
-    { 'neoclide/coc.nvim', branch = 'release' },
+    {
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end,
+    },
+    'neovim/nvim-lspconfig',
+    -- { 'neoclide/coc.nvim', branch = 'release' },
 
     -- Git
     'tpope/vim-fugitive',
