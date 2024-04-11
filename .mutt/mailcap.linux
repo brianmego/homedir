@@ -1,3 +1,3 @@
-text/html; vivaldi '%s' &; test=test -n "$DISPLAY"; needsterminal; nametemplate=%s.html;
+text/html; vivaldi-snapshot '%s' &; test=test -n "$DISPLAY"; needsterminal; nametemplate=%s.html;
 application/pdf; qpdfview %s; copiousoutput;
 image/*; feh %s;
