@@ -49,7 +49,7 @@ return {
     {
         'stevearc/oil.nvim',
         config = function()
-            require("oil_overrides")
+            require("configs/oil")
         end
     },
     -- Database
@@ -86,50 +86,27 @@ return {
             require("mason").setup()
         end,
     },
-    'neovim/nvim-lspconfig',
+    {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require("configs/lspconfig")
+        end
+    },
     {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
+            'neovim/nvim-lspconfig',
             "hrsh7th/cmp-buffer", -- source for text in buffer
             "hrsh7th/cmp-path", -- source for file system paths in commands
+            -- "hrsh7th/vim-vsnip", -- Code Snippets
+            -- "hrsh7th/cmp-vsnip", -- Code Snippets
             'SirVer/ultisnips',      -- Code Snippets
-            "quangnguyen30192/cmp-nvim-ultisnips", -- For lua autocompletion
+            "quangnguyen30192/cmp-nvim-ultisnips", -- For snippet autocompletion
             "onsails/lspkind.nvim", -- vs-code like pictograms
         },
         config = function()
-            local cmp = require("cmp")
-
-            local lspkind = require("lspkind")
-
-            cmp.setup({
-                completion = {
-                    completeopt = "menu,menuone,preview,noselect",
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-                    ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
-                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                    ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                }),
-                -- sources for autocompletion
-                sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
-                    { name = "ultisnips" }, -- snippets
-                    { name = "buffer" }, -- text within current buffer
-                    { name = "path" }, -- file system paths
-                }),
-                -- configure lspkind for vs-code like pictograms in completion menu
-                formatting = {
-                    format = lspkind.cmp_format({
-                        maxwidth = 50,
-                        ellipsis_char = "...",
-                    }),
-                },
-            })
+            require("configs/cmp")
         end,
     },
     -- { 'neoclide/coc.nvim', branch = 'release' },

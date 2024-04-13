@@ -11,7 +11,6 @@ local function map(kind, lhs, rhs, opts)
 end
 local silentnoremap = {noremap = true, silent = true}
 
-vim.g.mapleader = " "
 map('n',  'H', '^', silentnoremap)
 map('n', 'L', '$', silentnoremap)
 map('i', 'jk', '<esc>', silentnoremap)

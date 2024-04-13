@@ -1,5 +1,5 @@
--- keymappings
-require('brianmego.mappings')
+-- Setting up leader key
+vim.g.mapleader = ' '
 
 -- Plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -16,10 +16,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+-- keymappings
+require('brianmego.mappings')
+
 -- Default editor settings
 require('brianmego.editor_settings')
 
-require('brianmego.language_servers')
+
 -- Completion
 -- vim.g.coc_global_extensions={
 --     'coc-erlang_ls',
