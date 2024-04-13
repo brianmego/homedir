@@ -11,7 +11,7 @@ return {
     {
         'itchyny/lightline.vim', -- Statusline config
         config = function()
-            require("lightline").setup()
+            require("configs/lightline")
         end,
     },
     -- Editing help
@@ -19,7 +19,7 @@ return {
         'ntpeters/vim-better-whitespace', -- Visualize trailing whitespace
 
         config = function()
-            require("better-whitespace").setup()
+            require("configs/better_whitespace")
         end,
     },
     'tpope/vim-unimpaired',  -- Complementary mapping hotkeys
@@ -36,14 +36,7 @@ return {
         "nvim-treesitter/nvim-treesitter", -- Syntax highlighting/folding/indentation
         build = ":TSUpdate",
         config = function()
-            local configs = require("nvim-treesitter.configs")
-
-            configs.setup({
-                ensure_installed = { "bash", "hcl", "html", "javascript", "lua", "python", "rust", "vim", "vimdoc", "sql", "regex", "rst" },
-                sync_install = false,
-                highlight = { enable = true },
-                indent = { enable = true },
-            })
+            require("configs/treesitter")
         end
     },
     {
@@ -60,7 +53,7 @@ return {
             "kristijanhusak/vim-dadbod-completion",
         },
         config = function()
-            require("dadbod").setup()
+            require("configs/dadbod")
         end,
         cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
     },
@@ -96,13 +89,10 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            -- 'neovim/nvim-lspconfig',
             "hrsh7th/cmp-buffer", -- source for text in buffer
             "hrsh7th/cmp-path", -- source for file system paths in commands
             "hrsh7th/cmp-cmdline", -- source for vim commands
             "hrsh7th/cmp-nvim-lsp", -- source for lsp
-            -- "hrsh7th/vim-vsnip", -- Code Snippets
-            -- "hrsh7th/cmp-vsnip", -- Code Snippets
             'SirVer/ultisnips',      -- Code Snippets
             "quangnguyen30192/cmp-nvim-ultisnips", -- For snippet autocompletion
             "onsails/lspkind.nvim", -- vs-code like pictograms
