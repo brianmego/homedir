@@ -86,6 +86,7 @@ return {
             require("mason").setup()
         end,
     },
+    {'folke/neodev.nvim', opts = {}},
     {
         'neovim/nvim-lspconfig',
         config = function()
