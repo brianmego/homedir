@@ -1,6 +1,6 @@
 local cmp = require("cmp")
 
--- local lspkind = require("lspkind")
+local lspkind = require("lspkind")
 
 cmp.setup({
     snippet = {
@@ -24,20 +24,18 @@ cmp.setup({
     }),
     -- sources for autocompletion
     sources = cmp.config.sources({
+        { name = "ultisnips" },
         { name = "nvim_lsp" },
-        -- { name = "vsnip" },
-        { name = "ultisnips" }, -- snippets
-    -- }, {
-    --     { name = "buffer" }, -- text within current buffer
-    --     { name = "path" }, -- file system paths
+    }, {
+        { name = "buffer" },
     }),
     -- configure lspkind for vs-code like pictograms in completion menu
-    -- formatting = {
-    --     format = lspkind.cmp_format({
-    --         maxwidth = 50,
-    --         ellipsis_char = "...",
-    --     }),
-    -- },
+    formatting = {
+        format = lspkind.cmp_format({
+            maxwidth = 50,
+            ellipsis_char = "...",
+        }),
+    },
 })
 
 cmp.setup.cmdline({ '/', '?' }, {
@@ -47,15 +45,11 @@ cmp.setup.cmdline({ '/', '?' }, {
     }
 })
 
-cmp.setup.cmdline({ ':' }, {
+cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
+        { name = "path" }
+    }, {
         { name = "cmdline" }
     })
-    -- sources = cmp.config.sources({
-    --     { name = "path" }
-    -- }, {
-    --     { name = "cmdline" }
-    -- })
 })
-

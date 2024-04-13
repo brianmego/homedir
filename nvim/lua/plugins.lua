@@ -94,11 +94,12 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
         dependencies = {
-            'neovim/nvim-lspconfig',
+            -- 'neovim/nvim-lspconfig',
             "hrsh7th/cmp-buffer", -- source for text in buffer
             "hrsh7th/cmp-path", -- source for file system paths in commands
+            "hrsh7th/cmp-cmdline", -- source for vim commands
+            "hrsh7th/cmp-nvim-lsp", -- source for lsp
             -- "hrsh7th/vim-vsnip", -- Code Snippets
             -- "hrsh7th/cmp-vsnip", -- Code Snippets
             'SirVer/ultisnips',      -- Code Snippets
