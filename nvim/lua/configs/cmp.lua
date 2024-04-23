@@ -2,7 +2,12 @@ local cmp = require("cmp")
 
 local lspkind = require("lspkind")
 
+vim.g.cmptoggle = true
+vim.keymap.set("n", "<leader>xo", "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", { desc = "toggle nvim-cmp" })
 cmp.setup({
+    enabled = function()
+        return vim.g.cmptoggle
+    end,
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
@@ -19,7 +24,7 @@ cmp.setup({
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-d>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-e>"] = cmp.mapping.abort(),        -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
     }),
     -- sources for autocompletion
@@ -27,6 +32,7 @@ cmp.setup({
         { name = "ultisnips" },
         { name = "nvim_lsp" },
     }, {
+        { name = "path" },
         { name = "buffer" },
     }),
     -- configure lspkind for vs-code like pictograms in completion menu

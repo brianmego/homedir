@@ -12,7 +12,6 @@ local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup {}
 lspconfig.pyright.setup {}
 
-
 lspconfig.ruff_lsp.setup {
   on_attach = on_attach,
     init_options = {
@@ -68,7 +67,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>h', function()
-            vim.lsp.inlay_hint.enable(opts.buffer, not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint(opts.buffer)
         end, opts)
         vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)

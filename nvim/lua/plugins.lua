@@ -106,7 +106,7 @@ return {
     -- Git
     'tpope/vim-fugitive',
 
-    -- -- AI completion
+    -- AI completion
     -- {
     --   'git@gitlab.com:gitlab-org/editor-extensions/gitlab.vim.git',
     --   event = { 'BufReadPre', 'BufNewFile' }, -- Activate when a file is created/opened
