@@ -11,6 +11,8 @@ end
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup {}
 lspconfig.pyright.setup {}
+lspconfig.tsserver.setup {}
+lspconfig.tailwindcss.setup {}
 
 lspconfig.ruff_lsp.setup {
   on_attach = on_attach,
@@ -65,11 +67,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
+        -- vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>h', function()
             vim.lsp.inlay_hint(opts.buffer)
         end, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
+        -- vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }

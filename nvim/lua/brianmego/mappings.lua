@@ -46,4 +46,7 @@ map('n', '<Down>', ':resize -2<CR>', silentnoremap)
 map('n', '<Left>', ':vertical resize -2<CR>', silentnoremap)
 map('n', '<Right>', ':vertical resize +2<CR>', silentnoremap)
 
+map('n', '<leader>a', ':Lspsaga code_action<CR>', silentnoremap)
+map('v', '<leader>a', ':Lspsaga code_action<CR>', silentnoremap)
+map('n', '<leader>r', ':Lspsaga rename<CR>', silentnoremap)
 -- map('n', 'K', ':call <SID>show_documentation()<CR>', silentnoremap)
