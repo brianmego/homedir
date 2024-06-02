@@ -17,6 +17,7 @@ alias docker_clean='docker rm -f $(docker ps -aq) && docker rmi -f $(docker imag
 alias cat='bat -pp'
 alias ze='zellij'
 alias vim='nvim'
+alias cwr="cargo watch -qcx 'run -q'"
 if [[ `uname` == 'Darwin' ]] then
     alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 fi
