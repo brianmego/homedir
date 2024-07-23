@@ -13,6 +13,7 @@ lspconfig.lua_ls.setup {}
 lspconfig.pyright.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.tailwindcss.setup {}
+lspconfig.csharp_ls.setup {}
 
 lspconfig.ruff_lsp.setup {
   on_attach = on_attach,

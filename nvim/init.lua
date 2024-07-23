@@ -69,7 +69,7 @@ vim.cmd([[
 
 
     """Rust
-    autocmd FileType rust nnoremap <leader>t :Start -wait=always cargo test<CR>
+    autocmd FileType rust nnoremap <leader>t :Start -wait=always cargo nextest run<CR>
 
     """Python
     autocmd FileType python setlocal colorcolumn=80
