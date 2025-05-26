@@ -1,0 +1,135 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "margin": "9 13 -10 18",
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "hyprland/submap", "tray"],
+    "modules-center": ["hyprland/window", "mpris"],
+    "modules-right": ["pulseaudio", "clock", "custom/weather", "cpu"],
+
+
+    //***************************
+    //*  Modules configuration  *
+    //***************************
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+    },
+
+    "hyprland/language": {
+        "format-en": "US",
+        "format-ru": "RU",
+	"min-length": 5,
+	"tooltip": false
+    },
+
+    "keyboard-state": {
+        //"numlock": true,
+        "capslock": true,
+        "format": "{icon} ",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": ""
+        },
+    },
+
+    "custom/pacman": {
+        "format": "{} ",
+        "interval": 3600,                     			// every hour
+        "exec": "(checkupdates;pacman -Qm | aur vercmp) | wc -l",	// # of updates
+        "exec-if": "exit 0",                  			// always run; consider advanced run conditions
+        "on-click": "foot sh -c 'yay; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar", // update system
+        "signal": 8,
+        "tooltip": false,
+    },
+
+
+    "hyprland/submap": {
+        "format": "pon {}"
+    },
+
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%a, %d %b, %I:%M %p}"
+    },
+
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 1800,
+        "exec": "$HOME/.config/waybar/scripts/wttr.py",
+        "return-type": "json"
+    },
+
+    "mpris": {
+        "format": "{player_icon} {dynamic}",
+        "dynamic-len": 70,
+        "format-paused": "{status_icon} <i>{dynamic}</i>",
+        "interval": 1,
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
+        // "ignored-players": ["firefox"]
+    },
+
+    "custom/nowplaying": {
+        "exec": "playerctl metadata --format '{{ artist }} - {{ title  }}' || true",
+        "format": "{}"
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "reverse-scrolling": 1,
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "min-length": 13,
+    },
+
+    "custom/mem": {
+        "format": "{} ",
+        "interval": 3,
+        "exec": "free -h | awk '/Mem:/{printf $3}'",
+        "tooltip": false,
+    },
+
+    "cpu": {
+      "interval": 2,
+      "format": "{usage}% ",
+      "min-length": 6
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureF}°F {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip": false,
+    },
+
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 5
+    },
+}
