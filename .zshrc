@@ -73,6 +73,7 @@ export FZF_DEFAULT_OPTS="-i --no-mouse --reverse --multi --inline-info --preview
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd $FD_OPTIONS"
 export BAT_PAGER="less -R"
 export RUSTC_WRAPPER=sccache
+export PAGER="less -FRX"
 
 disable_gitprompt () {
     export PS1='%{$fg_bold[cyan]%}%n@%m %{$fg[blue]%}%D{[%X]} %{$reset_color%}%{$fg[cyan]%}[%~]%{$reset_color%}

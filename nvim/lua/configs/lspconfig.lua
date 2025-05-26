@@ -1,7 +1,7 @@
 require("neodev").setup({})
 
 local on_attach = function(client, bufnr)
-  if client.name == 'ruff_lsp' then
+  if client.name == 'ruff' then
     -- Disable hover in favor of Pyright
     client.server_capabilities.hoverProvider = false
   end
@@ -11,11 +11,11 @@ end
 local lspconfig = require('lspconfig')
 lspconfig.lua_ls.setup {}
 lspconfig.pyright.setup {}
-lspconfig.tsserver.setup {}
+lspconfig.ts_ls.setup {}
 lspconfig.tailwindcss.setup {}
 lspconfig.csharp_ls.setup {}
 
-lspconfig.ruff_lsp.setup {
+lspconfig.ruff.setup {
   on_attach = on_attach,
     init_options = {
         settings = {
