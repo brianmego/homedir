@@ -57,6 +57,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>l', vim.diagnostic.setloclist)
+map('n', '<leader>gr', '<cmd>Telescope lsp_references<CR>', silentnoremap)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -86,10 +87,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
         -- vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts)
         vim.keymap.set('n', '<leader>h', function()
-            vim .lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, opts)
         -- vim.keymap.set({ 'n', 'v' }, '<leader>a', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
         end, opts)

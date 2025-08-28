@@ -1,7 +1,7 @@
 [color]
     ui = true
 [user]
-    name = Brian Mego
+	name = Brian Mego
 [alias]
     co = checkout
     ec = config --global -e
@@ -13,6 +13,12 @@
     bclean = "!f() { git branch --merged ${1-master} | grep -v " master$" | grep -v " develop$" | grep -v " main$" | grep -v " ${1-master}$" | xargs git branch -d; }; f"
     bcleanremote = "!f() { git branch -r --merged ${1-origin/master} | grep -v " origin/master$" | grep -v " origin/develop$" | grep -v " main$" | grep -v " ${1-origin/master}$"; }; f"
     spull = submodule foreach git pull
+    # Checkout PR locally crafted for BB
+	pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+	# Checkout PR locally from Gitlab
+	mr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/merge-requests/$1/head:mr/$1 && git checkout mr/$1; }; f"
+	# Cleanup PR branches
+	pr-clean = "!git for-each-ref refs/heads/pr/* refs/heads/mr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [push]
     default = simple
 [core]

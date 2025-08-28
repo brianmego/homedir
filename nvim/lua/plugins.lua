@@ -28,8 +28,14 @@ return {
     'tpope/vim-repeat',      -- Use . key on things like commentary and surround
     'Yggdroot/indentLine',   -- Visualize indentation level
     'tpope/vim-speeddating', -- Improve C-A and C-X for dates
+    {
+        'rmagatti/auto-session',
+        config = function()
+            require("configs/auto_session")
+        end,
+    },
 
-    "preservim/tagbar",      -- Classes/functions/enums in sidebar
+    "preservim/tagbar", -- Classes/functions/enums in sidebar
 
     -- File Viewing
     {
@@ -79,7 +85,7 @@ return {
             require("mason").setup()
         end,
     },
-    {'folke/neodev.nvim', opts = {}},
+    { 'folke/neodev.nvim', opts = {} },
     {
         'neovim/nvim-lspconfig',
         config = function()
@@ -95,13 +101,13 @@ return {
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
-            "hrsh7th/cmp-buffer", -- source for text in buffer
-            "hrsh7th/cmp-path", -- source for file system paths in commands
-            "hrsh7th/cmp-cmdline", -- source for vim commands
-            "hrsh7th/cmp-nvim-lsp", -- source for lsp
-            'SirVer/ultisnips',      -- Code Snippets
+            "hrsh7th/cmp-buffer",                  -- source for text in buffer
+            "hrsh7th/cmp-path",                    -- source for file system paths in commands
+            "hrsh7th/cmp-cmdline",                 -- source for vim commands
+            "hrsh7th/cmp-nvim-lsp",                -- source for lsp
+            'SirVer/ultisnips',                    -- Code Snippets
             "quangnguyen30192/cmp-nvim-ultisnips", -- For snippet autocompletion
-            "onsails/lspkind.nvim", -- vs-code like pictograms
+            "onsails/lspkind.nvim",                -- vs-code like pictograms
         },
         config = function()
             require("configs/cmp")

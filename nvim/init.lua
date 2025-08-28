@@ -23,20 +23,6 @@ require('brianmego.mappings')
 require('brianmego.editor_settings')
 
 
--- Completion
--- vim.g.coc_global_extensions={
---     'coc-erlang_ls',
---     'coc-tsserver',
---     'coc-snippets',
---     'coc-pyright',
---     'coc-json',
---     'coc-html',
---     'coc-css',
---     'coc-rust-analyzer',
---     'coc-go',
---     'coc-lua',
--- }
-
 vim.cmd([[
     " Add search to quickfix list
     function! s:build_quickfix_list(lines)
@@ -75,7 +61,7 @@ vim.cmd([[
     autocmd FileType python setlocal colorcolumn=80
     autocmd BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
     autocmd BufWritePre *.py,*.rs,*lua,*rst,*.tsx :%s/\s\+$//e
-    autocmd FileType python nnoremap <leader>t :Start -wait=always pytest -svv %<CR>
+    autocmd FileType python nnoremap <leader>t :Start -wait=always pytest --asyncio-mode=auto -svv %<CR>
     autocmd FileType python nnoremap <leader>y "tyiw:Start -wait=always pytest -svv % -k <C-R>t<CR>
 
     """Go
@@ -88,7 +74,7 @@ vim.cmd([[
 
 ]])
 
-local function printStrings(str1, str2)
-    print(str1);
-    print(str2);
-end
+-- local function printStrings(str1, str2)
+--     print(str1);
+--     print(str2);
+-- end
