@@ -14,12 +14,18 @@ lspconfig.pyright.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.clangd.setup {}
 -- lspconfig.basedpyright.setup {
---     basedpyright = {
---         analysis = {
---             diagnosticMode = "openFilesOnly",
---             typeCheckingMode = "off"
---         }
---     }
+--     -- settings = {
+--     --     basedpyright = {
+--     --         analysis = {
+--     --             diagnosticMode = "openFilesOnly",
+--     --             -- typeCheckingMode = "strict",
+--     --             -- diagnosticSeverityOverrides = {
+--     --             --     reportImplicitRelativeImport = "information"
+
+--     --             -- }
+--     --         }
+--     --     }
+--     -- }
 -- }
 lspconfig.ts_ls.setup {}
 lspconfig.tailwindcss.setup {}

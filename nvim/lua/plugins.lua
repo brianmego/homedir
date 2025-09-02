@@ -1,4 +1,20 @@
 return {
+    {
+      "vhyrro/luarocks.nvim",
+      priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+      config = true,
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            indent = { enabled = true },
+            dim = { enabled = true },
+        }
+    },
     -- colorschemes
     "rakr/vim-one",
     'morhetz/gruvbox',
@@ -26,7 +42,7 @@ return {
     'tpope/vim-surround',    -- surround text objects with like symbols
     'tpope/vim-commentary',  -- comment blocks of code intelligently
     'tpope/vim-repeat',      -- Use . key on things like commentary and surround
-    'Yggdroot/indentLine',   -- Visualize indentation level
+    -- 'Yggdroot/indentLine',   -- Visualize indentation level
     'tpope/vim-speeddating', -- Improve C-A and C-X for dates
     {
         'rmagatti/auto-session',

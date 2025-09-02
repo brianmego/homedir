@@ -67,6 +67,10 @@ vim.cmd([[
     """Go
     autocmd FileType go setlocal noexpandtab
 
+    """ Json
+"   autocmd FileType json setlocal conceallevel=0
+"   let g:vim_json_conceal=0
+
     " Make <CR> auto-select the first completion item and notify coc.nvim to
     " format on enter, <cr> could be remapped by other vim plugin
 "    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#pum#confirm()
