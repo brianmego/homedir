@@ -60,6 +60,14 @@
   padding: 0.5rem 1rem;
   margin: 5px 0;
 }
+
+#window {
+    margin: 5px 5px;
+}
+#mpris {
+    margin: 5px 5px;
+}
+
 #pulseaudio {
     color: @red;
     border-radius: 0;

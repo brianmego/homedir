@@ -4,7 +4,7 @@
     "margin": "9 13 -10 18",
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "tray"],
-    "modules-center": ["hyprland/window", "mpris"],
+    "modules-center": ["hyprland/window"],
     "modules-right": ["pulseaudio", "clock", "cpu"],
 
 
@@ -23,7 +23,12 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M %p}"
+        "format": "{:%I:%M %p}",
+        "calendar": {
+            "format": {
+                "today": "<b><u>{}</u></b>"
+            }
+        }
     },
 
     "custom/weather": {
