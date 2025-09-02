@@ -28,5 +28,8 @@ if [[ `uname` == 'Linux' ]]; then
     ln -svf mailcap.linux $PWD/.mutt/mailcap
 else
     ln -svf mailcap.osx $PWD/.mutt/mailcap
+    mkdir -p ~/.config/aerospace
+    ln -svf $PWD/aerospace/.aerospace.toml ~/.aerospace.toml
+    ln -svf $PWD/aerospace/follow_workspace.sh ~/.config/aerospace/follow_workspace.sh
 fi
 ln -svf $PWD/.mutt/mailcap ~/.mailcap
