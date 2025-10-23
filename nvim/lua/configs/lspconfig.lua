@@ -8,30 +8,17 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.lua_ls.setup {}
-lspconfig.pyright.setup {}
-lspconfig.jsonls.setup {}
-lspconfig.clangd.setup {}
--- lspconfig.basedpyright.setup {
---     -- settings = {
---     --     basedpyright = {
---     --         analysis = {
---     --             diagnosticMode = "openFilesOnly",
---     --             -- typeCheckingMode = "strict",
---     --             -- diagnosticSeverityOverrides = {
---     --             --     reportImplicitRelativeImport = "information"
+local lspconfig = vim.lsp
+lspconfig.enable("lua_ls")
+lspconfig.enable("pyright")
+lspconfig.enable("jsonls")
+lspconfig.enable("clangd")
+lspconfig.enable("ts_ls")
+lspconfig.enable("tailwindcss")
+lspconfig.enable("csharp_ls")
 
---     --             -- }
---     --         }
---     --     }
---     -- }
--- }
-lspconfig.ts_ls.setup {}
-lspconfig.tailwindcss.setup {}
-lspconfig.csharp_ls.setup {}
-
-lspconfig.ruff.setup {
+lspconfig.enable("ruff")
+lspconfig.config("ruff", {
     on_attach = on_attach,
     init_options = {
         settings = {
@@ -43,10 +30,28 @@ lspconfig.ruff.setup {
             }
         }
     }
-}
-lspconfig.rust_analyzer.setup {
-    -- Server-specific settings. See `:help lspconfig-setup`
-    settings = {
-        ['rust-analyzer'] = {},
-    },
-}
+})
+
+lspconfig.enable("rust_analyzer")
+lspconfig.config("rust_analyzer", {
+     -- Server-specific settings. See `:help lspconfig-setup`
+     settings = {
+         ['rust-analyzer'] = {},
+     },
+})
+
+-- lspconfig.enable("basedpyright")
+-- lspconfig.config("basedpyright", {
+--      settings = {
+--          basedpyright = {
+--              analysis = {
+--                  diagnosticMode = "openFilesOnly",
+--                  -- typeCheckingMode = "strict",
+--                  -- diagnosticSeverityOverrides = {
+--                  --     reportImplicitRelativeImport = "information"
+
+--                  -- }
+--              }
+--          }
+--      }
+-- })
