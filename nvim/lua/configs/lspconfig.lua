@@ -34,9 +34,11 @@ lspconfig.config("ruff", {
 
 lspconfig.enable("rust_analyzer")
 lspconfig.config("rust_analyzer", {
-     -- Server-specific settings. See `:help lspconfig-setup`
+     -- Server-specific settings. See `:help lspconfig-all`
      settings = {
-         ['rust-analyzer'] = {},
+        ['rust-analyzer'] = {
+            check = { command = "clippy" }
+        },
      },
 })
 
