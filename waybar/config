@@ -23,7 +23,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M %p}",
+        "format": "{:%I:%M %p (%D)}",
         "calendar": {
             "format": {
                 "today": "<b><u>{}</u></b>"
