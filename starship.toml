@@ -54,3 +54,12 @@ disabled = true
 
 [golang]
 disabled = true
+
+[aws]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[bun]
+disabled = true

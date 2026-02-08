@@ -1,17 +1,3 @@
-# # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-# if [ -e /lib/terminfo/x/xterm-256color ]; then
-#     export TERM='xterm-256color'
-# else
-#     export TERM='xterm-color'
-# fi
-
-# # Set name of the theme to load.
-# # Look in ~/.oh-my-zsh/themes/
-# # Optionally, if you set this to "random", it'll load a random theme each
-# # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -19,28 +5,26 @@ export ZSH=$HOME/.oh-my-zsh
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Search typed command through history with up and down arrows
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# ctrl left and ctrl right
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# Enable case-insensitive completion, prefer exact matches
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Use menu selection for completion
+zstyle ':completion:*' menu select=2
+# Case-insensitive globbing (used in pathname expansion)
+setopt nocaseglob
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -53,7 +37,6 @@ ZSH_CUSTOM="$HOME/.zsh/"
 # User configuration
 
 export PATH=/usr/local/bin:~/.local/bin:$PATH
-source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 
 fpath=(~/.zsh/completion $fpath)
@@ -73,6 +56,7 @@ export FZF_DEFAULT_OPTS="-i --no-mouse --reverse --multi --inline-info --preview
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd $FD_OPTIONS"
 export BAT_PAGER="less -R"
 export RUSTC_WRAPPER=sccache
+export CARGO_BUILD_BUILD_DIR=~/.cargo/build
 # export PAGER="less -FRX"
 
 disable_gitprompt () {
@@ -88,6 +72,7 @@ enable_gitprompt () {
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source $HOME/.antilles/antilles_completion.zsh
+source <(COMPLETE=zsh jj)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
