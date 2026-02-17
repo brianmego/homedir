@@ -5,6 +5,8 @@
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
 
+# ZSH editor functions: https://zsh.sourceforge.io/Doc/Release/Editor-Functions-Index.html#Editor-Functions-Index
+#
 # Search typed command through history with up and down arrows
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -19,6 +21,7 @@ bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^K" kill-line
 bindkey "^[[3~" delete-char
+bindkey "5~" delete-word
 bindkey "^R" history-incremental-search-backward
 
 # ctrl left and ctrl right
@@ -90,7 +93,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # pnpm
-export PNPM_HOME="/home/brian/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
