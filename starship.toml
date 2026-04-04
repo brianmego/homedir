@@ -1,7 +1,7 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
-format = """$all $directory $git_branch $python
+format = """$all $directory ${custom.jj} $python
 $character"""
 # format = """
 # $directory $time $rust$package(bold green)
@@ -26,11 +26,19 @@ disabled = false
 format = '[\[ $time \]]($style)'
 style = 'bold blue'
 
+[custom.jj]
+command = "prompt"
+format = "$output"
+ignore_timeout = true
+shell = ["starship-jj", "--ignore-working-copy", "starship"]
+use_stdin = false
+when = true
+
 [git_status]
 disabled = true
 
 [git_branch]
-disabled = false
+disabled = true
 format = "[$branch]($style)"
 
 [git_commit]

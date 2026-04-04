@@ -23,6 +23,8 @@ bindkey "^K" kill-line
 bindkey "^[[3~" delete-char
 bindkey "5~" delete-word
 bindkey "^R" history-incremental-search-backward
+bindkey "^[[3;5~" delete-word
+bindkey "^H" backward-delete-word
 
 # ctrl left and ctrl right
 bindkey "^[[1;5C" forward-word
