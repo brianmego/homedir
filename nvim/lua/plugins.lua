@@ -1,20 +1,20 @@
 return {
     {
-      "vhyrro/luarocks.nvim",
-      priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
-      config = true,
+        "vhyrro/luarocks.nvim",
+        priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+        config = true,
     },
 
-    {
-        "folke/snacks.nvim",
-        priority = 1000,
-        lazy = false,
-        ---@type snacks.Config
-        opts = {
-            indent = { enabled = true },
-            dim = { enabled = true },
-        }
-    },
+    --{
+    --    "folke/snacks.nvim",
+    --    priority = 1000,
+    --    lazy = false,
+    --    ---@type snacks.Config
+    --    opts = {
+    --        indent = { enabled = true },
+    --        dim = { enabled = true },
+    --    }
+    --},
     -- colorschemes
     "rakr/vim-one",
     'morhetz/gruvbox',
@@ -54,31 +54,31 @@ return {
     "preservim/tagbar", -- Classes/functions/enums in sidebar
 
     -- File Viewing
-    {
-        "nvim-treesitter/nvim-treesitter", -- Syntax highlighting/folding/indentation
-        build = ":TSUpdate",
-        config = function()
-            require("configs/treesitter")
-        end
-    },
+    -- {
+    --     "nvim-treesitter/nvim-treesitter", -- Syntax highlighting/folding/indentation
+    --     build = ":TSUpdate",
+    --     config = function()
+    --         require("configs/treesitter")
+    --     end
+    -- },
     {
         'stevearc/oil.nvim',
         config = function()
             require("configs/oil")
         end
     },
-    -- Database
-    {
-        "tpope/vim-dadbod",
-        dependencies = {
-            "kristijanhusak/vim-dadbod-ui",
-            "kristijanhusak/vim-dadbod-completion",
-        },
-        config = function()
-            require("configs/dadbod")
-        end,
-        cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
-    },
+    -- -- Database
+    -- {
+    --     "tpope/vim-dadbod",
+    --     dependencies = {
+    --         "kristijanhusak/vim-dadbod-ui",
+    --         "kristijanhusak/vim-dadbod-completion",
+    --     },
+    --     config = function()
+    --         require("configs/dadbod")
+    --     end,
+    --     cmd = { "DBUIToggle", "DBUI", "DBUIAddConnection", "DBUIFindBuffer", "DBUIRenameBuffer", "DBUILastQueryInfo" },
+    -- },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
@@ -101,7 +101,17 @@ return {
             require("mason").setup()
         end,
     },
-    { 'folke/neodev.nvim', opts = {} },
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- See the configuration section for more details
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
+    },
     {
         'neovim/nvim-lspconfig',
         config = function()
@@ -116,6 +126,15 @@ return {
     },
     {
         "hrsh7th/nvim-cmp",
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
+          },
+        },
         dependencies = {
             "hrsh7th/cmp-buffer",                  -- source for text in buffer
             "hrsh7th/cmp-path",                    -- source for file system paths in commands

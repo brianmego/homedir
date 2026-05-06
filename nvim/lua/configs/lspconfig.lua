@@ -1,5 +1,3 @@
-require("neodev").setup({})
-
 local on_attach = function(client, bufnr)
     if client.name == 'ruff' then
         -- Disable hover in favor of Pyright
@@ -8,17 +6,20 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup language servers.
-local lspconfig = vim.lsp
-lspconfig.enable("lua_ls")
-lspconfig.enable("pyright")
-lspconfig.enable("jsonls")
-lspconfig.enable("clangd")
-lspconfig.enable("ts_ls")
-lspconfig.enable("tailwindcss")
-lspconfig.enable("csharp_ls")
+local lsp = vim.lsp
+lsp.config('*', {
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
+lsp.enable("lua_ls")
+lsp.enable("pyright")
+lsp.enable("jsonls")
+lsp.enable("clangd")
+lsp.enable("ts_ls")
+lsp.enable("tailwindcss")
+lsp.enable("csharp_ls")
 
-lspconfig.enable("ruff")
-lspconfig.config("ruff", {
+lsp.enable("ruff")
+lsp.config("ruff", {
     on_attach = on_attach,
     init_options = {
         settings = {
@@ -32,9 +33,8 @@ lspconfig.config("ruff", {
     }
 })
 
-lspconfig.enable("rust_analyzer")
-lspconfig.config("rust_analyzer", {
-     -- Server-specific settings. See `:help lspconfig-all`
+lsp.enable("rust_analyzer")
+lsp.config("rust_analyzer", {
      settings = {
         ['rust-analyzer'] = {
             check = { command = "clippy" }
@@ -42,8 +42,8 @@ lspconfig.config("rust_analyzer", {
      },
 })
 
--- lspconfig.enable("basedpyright")
--- lspconfig.config("basedpyright", {
+-- lsp.enable("basedpyright")
+-- lsp.config("basedpyright", {
 --      settings = {
 --          basedpyright = {
 --              analysis = {

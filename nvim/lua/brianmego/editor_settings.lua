@@ -27,7 +27,7 @@ vim.cmd "set ignorecase"          -- ignore case when searching
 vim.cmd "set incsearch"           -- search as characters are entered
 vim.cmd "set hlsearch"            -- highlight all matches
 vim.cmd "set nowrap"
-vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
+-- vim.cmd "set foldexpr=nvim_treesitter#foldexpr()"
 vim.cmd "set nofoldenable"        -- Disable folding at startup.
 
 vim.cmd 'colorscheme quantum'

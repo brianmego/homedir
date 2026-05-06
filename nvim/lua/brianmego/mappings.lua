@@ -67,7 +67,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = ev.buf }
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[opts.buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
-        -- vim.lsp.inlay_hint.enable(opts.buffer, true)
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions

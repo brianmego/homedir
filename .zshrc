@@ -30,6 +30,8 @@ bindkey "^H" backward-delete-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
+export WORDCHARS='*?[]~=&;!#$%^(){}<>' # This is what counts as a WORD, for forward-word and backward-word functions
+
 # Enable case-insensitive completion, prefer exact matches
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # Use menu selection for completion
