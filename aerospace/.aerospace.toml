@@ -244,6 +244,10 @@ shift-down = ['volume set 0', 'mode main']
     run = 'move-node-to-workspace D' # D - Database
 
 [[on-window-detected]]
+    if.app-id = 'io.beekeeperstudio.desktop'
+    run = ['move-node-to-workspace D'] # mnemonics D - Database
+
+[[on-window-detected]]
     if.app-id = 'md.obsidian'
     run = 'move-node-to-workspace O' # mnemonics O - Obsidian
 

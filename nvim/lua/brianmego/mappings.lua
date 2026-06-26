@@ -25,7 +25,8 @@ map('n', '<C-F>', ':Telescope live_grep<CR>', silentnoremap)
 map('n', '<leader>b', ':Telescope buffers<CR>', silentnoremap)
 
 map('n', '<leader>j', ':%!jq . -<CR>', silentnoremap)
-map('n', '<leader>s', ':Git<CR>', silentnoremap)
+map('n', '<leader>s', ':J status<CR>', silentnoremap)
+map('n', '<leader>J', ':J<CR>', silentnoremap)
 map('n', '<leader>w', ':w<CR>', silentnoremap)
 map('n', '<leader>q', ':q<CR>', silentnoremap)
 --copy current path to clipboard

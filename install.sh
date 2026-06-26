@@ -20,6 +20,7 @@ ln -svf $PWD/.mutt ~/
 ln -svf $PWD/starship.toml ~/.config/starship.toml
 ln -svf $PWD/zellij ~/.config/zellij
 ln -svf $PWD/alacritty.toml ~/.config/alacritty/alacritty.toml
+ln -svf $PWD/kitty ~/.config/kitty
 
 touch $PWD/.zsh/localrc
 touch $PWD/.bashrc_local
