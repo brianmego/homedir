@@ -9,8 +9,10 @@ HYPHEN_INSENSITIVE="true"
 #
 # Search typed command through history with up and down arrows
 autoload -U history-search-end
+autoload -z edit-command-line
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
+zle -N edit-command-line
 bindkey "^[[A" history-beginning-search-backward-end
 bindkey "^[[B" history-beginning-search-forward-end
 
@@ -25,6 +27,8 @@ bindkey "5~" delete-word
 bindkey "^R" history-incremental-search-backward
 bindkey "^[[3;5~" delete-word
 bindkey "^H" backward-delete-word
+bindkey "^_" undo
+bindkey "^X^E" edit-command-line
 
 # ctrl left and ctrl right
 bindkey "^[[1;5C" forward-word
@@ -90,7 +94,6 @@ enable_gitprompt () {
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 source $HOME/.antilles/antilles_completion.zsh
-source <(COMPLETE=zsh jj)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -105,3 +108,4 @@ esac
 # pnpm end
 
 export BACON_CONFIG="$HOME/.config/bacon.toml"
+source <(COMPLETE=zsh jj)
