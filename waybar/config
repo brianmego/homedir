@@ -14,13 +14,13 @@
 
     "hyprland/workspaces": {
         "persistent-workspaces": {
-            "*": 4
+            "*": 0
         },
         "disable-scroll": true,
-        "format": " {icon} ",
-            "format-icons": {
-                "default": "",
-            },
+        "format": " {id} ",
+        "format-icons": {
+            "default": "",
+        },
     },
 
     "clock": {

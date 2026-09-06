@@ -88,7 +88,13 @@ return {
     -- Not yet sorted
     'tpope/vim-eunuch',
     'tpope/vim-dispatch',
-    'henrik/vim-indexed-search',
+    -- 'henrik/vim-indexed-search',
+    {
+        'kevinhwang91/nvim-hlslens',
+        config = function()
+            require("configs/hlslens")
+        end
+    },
     'jiangmiao/auto-pairs',
 
     -- Syntax
@@ -128,12 +134,12 @@ return {
         "hrsh7th/nvim-cmp",
         default = { "lazydev", "lsp", "path", "snippets", "buffer" },
         providers = {
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
+            lazydev = {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                -- make lazydev completions top priority (see `:h blink.cmp`)
+                score_offset = 100,
+            },
         },
         dependencies = {
             "hrsh7th/cmp-buffer",                  -- source for text in buffer
