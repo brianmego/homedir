@@ -9,7 +9,11 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+    'exec-and-forget sketchybar',
+    'exec-and-forget ~/Applications/Vicinae.app/Contents/MacOS/Vicinae',
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -43,7 +47,7 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 # automatically-unhide-macos-hidden-apps = true
 
-exec-on-workspace-change = ['/bin/bash', '-c', "~/.config/aerospace/follow_workspace.sh $AEROSPACE_FOCUSED_WORKSPACE" ]
+exec-on-workspace-change = ['/bin/bash', '-c', "~/.config/aerospace/workspace_change.sh $AEROSPACE_FOCUSED_WORKSPACE" ]
 
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -62,7 +66,7 @@ inner.horizontal = 10
 inner.vertical =   10
 outer.left =       10
 outer.bottom =     10
-outer.top =        10
+outer.top =        [{ monitor."DELL" = 48 }, {monitor."Built-in" = 16}, 16]
 outer.right =      10
 
 # 'main' binding mode declaration

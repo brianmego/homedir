@@ -8,3 +8,5 @@ aerospace move-node-to-workspace --window-id $(aerospace list-windows --all --js
 aerospace move-node-to-workspace --window-id $(aerospace list-windows --all --json | jq '.[] | select (."app-name" == "zoom.us" and ."window-title" == "zoom share toolbar window") | ."window-id"') $AEROSPACE_FOCUSED_WORKSPACE
 aerospace move-node-to-workspace --window-id $(aerospace list-windows --all --json | jq '.[] | select (."app-name" == "zoom.us" and ."window-title" == "Meeting chat") | ."window-id"') $AEROSPACE_FOCUSED_WORKSPACE
 aerospace move-node-to-workspace --window-id $(aerospace list-windows --all --json | jq '.[] | select (."app-name" == "Microsoft Outlook" and (."window-title" | contains("Reminder"))) | ."window-id"') $AEROSPACE_FOCUSED_WORKSPACE
+
+# sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE
